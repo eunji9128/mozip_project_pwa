@@ -27,7 +27,7 @@ const Contain = styled.div`
 const LandingImg = styled.div`
     width: 280px;
     height: 588px;
-    background: url(/landing1.svg);
+    background: url(${process.env.PUBLIC_URL}/landing1.svg);
     margin-top: 64px;
 `
 

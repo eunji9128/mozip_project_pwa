@@ -5,6 +5,8 @@ import styled from "styled-components";
 const FavBlocks = () => {
     let navigate = useNavigate();
     let [selected, setSelected] = useState([]);
+    const petURL = `url(${process.env.PUBLIC_URL}/favSpBlock.svg)`;
+    const petActiveURL = `url(${process.env.PUBLIC_URL}/favSpBlockActive.svg)`;
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,13 +24,13 @@ const FavBlocks = () => {
         if (isExist) {
             copy = copy.filter((elem) => { if (elem !== targetId) return true; })
             if (targetId === "pet") {
-                document.getElementById(targetId).style.background = "url(/favSpBlock.svg)"
+                document.getElementById(targetId).style.background = petURL;
             }
             else {document.getElementById(targetId).style.background = "#737373"}
         } else {
             copy.push(targetId);
             if (targetId === "pet") {
-                document.getElementById(targetId).style.background = "url(/favSpBlockActive.svg)"
+                document.getElementById(targetId).style.background = petActiveURL;
             }
             else {document.getElementById(targetId).style.background = "#d4d4d4"}
         }
@@ -90,7 +92,7 @@ const FavBlocks = () => {
                     <FlexBlock
                         width={"180px"}
                         height={"180px"}
-                        bgColor={"url(/favSpBlock.svg)"}
+                        bgColor={petURL}
                         margin={"0 16px 16px 0"}
                         id="pet"
                         onClick={(e) => handleSelect(e)}

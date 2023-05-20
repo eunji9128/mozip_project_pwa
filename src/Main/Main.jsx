@@ -70,7 +70,7 @@ const Header = styled.div`
 const SmallLogo = styled.div`
     width: 40px;
     height: 40px;
-    background-image: url(/mozip_logo_small.svg);
+    background-image: url(${process.env.PUBLIC_URL}/mozip_logo_small.svg);
 `
 
 const TabGroup = styled.div`
