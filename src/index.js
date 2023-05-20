@@ -4,18 +4,105 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { GlobalStyle } from './style/styled';
+import { Favorites, ProfileSet, SignupBirth, SignupName } from './components/Signup';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Landing from './components/Landing';
+import Main from './Main/Main';
+import Home from './Main/Home';
+import Recommend from './Main/Recommend';
+import Completed from './Main/Completed';
+import Personal from './Personal/Personal';
+import PersonalHome from './Personal/PersonalHome';
+import { Test1, Test2, Tests } from './Personal/Tests';
+
+const id = 1;
+const basename = process.env.PUBLIC_URL;
+const routes = [
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: 'name',
+        element: <SignupName />,
+      },
+      {
+        path: 'birth',
+        element: <SignupBirth />,
+      },
+      {
+        path: 'favorites',
+        element: <Favorites />,
+      },
+      {
+        path: 'profile-set',
+        element: <ProfileSet />,
+      },
+    ]
+  },
+  {
+    path: '/landing',
+    element: <Landing />,
+  },
+  {
+    path: '/home',
+    element: <Main />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+      {
+        path: 'recommend',
+        element: <Recommend />,
+      },
+      {
+        path: 'completed',
+        element: <Completed />,
+      }
+    ]
+  },
+  {
+    path: '/personal',
+    element: <PersonalHome />,
+    children: [
+      {
+        path: '',
+        element: <Personal />
+      },
+      {
+        path: ':id',
+        element: <Tests />,
+      }
+    ]
+  },
+  {
+    path: '/chat',
+    element: <h1>chat page</h1>,
+  },
+  {
+    path: '/mypage',
+    element: <h1>my page</h1>,
+  }
+]
+
+const router = createBrowserRouter(routes, {basename: basename});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <>
+    <GlobalStyle />
+    <RouterProvider router={router} />
+  </>  
+  // </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
