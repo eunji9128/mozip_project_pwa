@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/mozip_project_pwa/static/css/main.eb108fe1.css",
+    "main.js": "/mozip_project_pwa/static/js/main.160109c5.js",
+    "static/js/787.41bd328f.chunk.js": "/mozip_project_pwa/static/js/787.41bd328f.chunk.js",
+    "service-worker.js": "/mozip_project_pwa/service-worker.js",
+    "static/media/yapari.ttf": "/mozip_project_pwa/static/media/yapari.944cd3330ee0a2579bb2.ttf",
+    "index.html": "/mozip_project_pwa/index.html",
+    "main.eb108fe1.css.map": "/mozip_project_pwa/static/css/main.eb108fe1.css.map",
+    "main.160109c5.js.map": "/mozip_project_pwa/static/js/main.160109c5.js.map",
+    "787.41bd328f.chunk.js.map": "/mozip_project_pwa/static/js/787.41bd328f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb108fe1.css",
+    "static/js/main.160109c5.js"
+  ]
+}
