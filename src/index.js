@@ -14,9 +14,8 @@ import Recommend from './Main/Recommend';
 import Completed from './Main/Completed';
 import Personal from './Personal/Personal';
 import PersonalHome from './Personal/PersonalHome';
-import { Test1, Test2, Tests } from './Personal/Tests';
+import { Tests } from './Personal/Tests';
 
-const id = 1;
 const basename = process.env.PUBLIC_URL;
 const routes = [
   {

@@ -9,18 +9,21 @@ import { useNavigate } from "react-router-dom";
 const Test1 = () => {
     const navigate = useNavigate();
     let [step, setStep] = useState(0);
+    let [end, setEnd] = useState(false);
+    let [start, setStart] = useState(false);
+    let [progressVal, setProgressVal] = useState(0);
     
     let grid = new Array(colorData[step].row*colorData[step].column).fill(0);
     
     useEffect(() => {
-        if (step !== 0) {
-            console.log('debug1: ', colorData[step-1].pickId, colorData[step].mainColor);
-            for (let i=0; i<(colorData[step-1].row * colorData[step-1].column); i++) {
-                document.getElementsByClassName('colorGrid')[i].style.backgroundColor = colorData[step].mainColor;
+        if (start && !end) {
+            if (step !== 0) {
+                for (let i=0; i<(colorData[step-1].row * colorData[step-1].column); i++) {
+                    document.getElementsByClassName('colorGrid')[i].style.backgroundColor = colorData[step].mainColor;
+                }
             }
+            document.getElementById(colorData[step].pickId.toString()).style.backgroundColor = colorData[step].pickColor;
         }
-        document.getElementById(colorData[step].pickId.toString()).style.backgroundColor = colorData[step].pickColor;
-        console.log('debug2: ', colorData[step].pickId, colorData[step].pickColor);
     },[step])
 
     const handleTestClick = (e) => {
@@ -28,12 +31,15 @@ const Test1 = () => {
         e.stopPropagation();
         if (parseInt(e.target.id) === colorData[step].pickId) {
             if (step >= colorData.length-1) {
-                console.log('done: ', step);
+                setEnd(true); // 뱃지획득 스텝으로 변경 예정
                 return
             }
             let copy = step;
             copy = copy + 1;
             setStep(copy);
+        } else {
+            setEnd(true);
+            console.log('end: ', end);
         }
         console.log(step);
     }
@@ -43,48 +49,77 @@ const Test1 = () => {
         navigate('/personal');
     }
 
-    let [progressVal, setProgressVal] = useState(0)
-
     useEffect(() => {
-        if (progressVal < 30) {
+        if (start && progressVal < 30) {
             let a = setTimeout(() => {setProgressVal(progressVal + 1)}, 1000);
         }
     })
 
+    const handleStart = (e) => {
+        e.preventDefault();
+        setStart(true);
+        console.log(start);
+    }
+
     return (
         <Container>
-            <Header>
-                <span 
-                    className="material-symbols-outlined"
-                    onClick={(e) => {handleNavigate(e)}}
-                >
-                    chevron_left
-                </span>
-                <HeaderContent>
-                    <h3>절대 색감 테스트</h3>
-                    <p>제한 시간 안에 색이 다른 하나의 사각형을 클릭해 주세요.</p>
-                </HeaderContent>
-            </Header>
-            <ProgressBar>
-                <progress max="30" value={progressVal}></progress>
-                <p>{progressVal}</p>
-            </ProgressBar>
-            <TestContents>
-                <div>
-                    <p>단계 1/38</p>
-                    <ColorGrid row={colorData[step].row} column={colorData[step].column} color={colorData[step].mainColor}>
-                        {
-                            grid.map((data, i) => {return <div key={i} id={i} className="colorGrid" onClick={(e) => handleTestClick(e)}/>})
-                        }
-                    </ColorGrid>
-                </div>
-            </TestContents>
+            {
+                end || (progressVal == 30) ?
+                <>
+                    <Container>
+                        <Fail />
+                        <OverBtn>{true ? "▶ " : null}TRY AGAIN</OverBtn>
+                        <OverBtn>EXIT TEST</OverBtn>
+                    </Container>
+                </>
+                :
+                <>
+                    <Header>
+                        <span 
+                            className="material-symbols-outlined"
+                            onClick={(e) => {handleNavigate(e)}}
+                        >
+                            chevron_left
+                        </span>
+                        <HeaderContent>
+                            <h3>절대 색감 테스트</h3>
+                            <p>제한 시간 안에 색이 다른 하나의 사각형을 클릭해 주세요.</p>
+                        </HeaderContent>
+                    </Header>
+                    {
+                        !start ?
+                        <TestLanding onClick={()=>{setStart(true)}}/> :
+                        <>
+                            <ProgressBar>
+                                <progress max="30" value={progressVal}></progress>
+                                <p>{progressVal}</p>
+                            </ProgressBar>
+                            <TestContents>
+                                <div>
+                                    <p>단계 {step+1}/{colorData.length}</p>
+                                    <ColorGrid row={colorData[step].row} column={colorData[step].column} color={colorData[step].mainColor}>
+                                        {
+                                            grid.map((data, i) => {return <div key={i} id={i} className="colorGrid" onClick={(e) => handleTestClick(e)}/>})
+                                        }
+                                    </ColorGrid>
+                                </div>
+                            </TestContents>
+                        </>
+                    }
+                </>
+            }
         </Container>
     )
 }
 
 const Container = styled.div`
     width: 100%;
+`
+
+const TestLanding = styled.div`
+    width: 100%;
+    height: 723px;
+    background: url(${process.env.PUBLIC_URL}/color_test_landing.svg);
 `
 
 const Header = styled.div`
@@ -143,10 +178,12 @@ const ProgressBar = styled.div`
 `
 
 const TestContents = styled.div`
-    width: 100%;
+    width: 328px;
+    margin: auto;
     margin-top: 60px;
     padding: auto;
-
+    color: ${color.gray400};
+    
     div {
         margin: auto;
     }
@@ -167,6 +204,26 @@ const ColorGrid = styled.div`
         border-radius: 10px;
         margin: 6px;
     }
+`
+
+const Fail = styled.div`
+    width: 225px;
+    height: 225px;
+    margin: auto;
+    margin-top: 200px;
+    margin-bottom: 40px;
+    background: url(${process.env.PUBLIC_URL}/gameover.svg);
+`
+
+const OverBtn = styled.button`
+    width: 100%;
+    margin: auto;
+    background: none;
+    border: none;
+    color: ${color.mainColor};
+    font-family: "yapari";
+    font-size: 16px;
+    margin-top: 40px;
 `
 
 export default Test1
