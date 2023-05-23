@@ -47,7 +47,7 @@ const HomeBanner = styled.div`
     width: 360px;
     height: 180px;
     margin: auto;
-    background-image: url(${process.env.PUBLIC_URL}/home_banner.svg);
+    background-image: url(${process.env.PUBLIC_URL}/img/home_banner.svg);
 `
 
 const StyledBtn = styled.button`
