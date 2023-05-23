@@ -55,12 +55,6 @@ const Test1 = () => {
         }
     })
 
-    const handleStart = (e) => {
-        e.preventDefault();
-        setStart(true);
-        console.log(start);
-    }
-
     return (
         <Container>
             {
