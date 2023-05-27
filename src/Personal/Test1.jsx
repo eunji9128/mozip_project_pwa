@@ -55,12 +55,6 @@ const Test1 = () => {
         }
     })
 
-    const handleStart = (e) => {
-        e.preventDefault();
-        setStart(true);
-        console.log(start);
-    }
-
     return (
         <Container>
             {
@@ -119,7 +113,7 @@ const Container = styled.div`
 const TestLanding = styled.div`
     width: 100%;
     height: 723px;
-    background: url(${process.env.PUBLIC_URL}/color_test_landing.svg);
+    background: url(${process.env.PUBLIC_URL}/img/color_test_landing.svg);
 `
 
 const Header = styled.div`
@@ -212,7 +206,7 @@ const Fail = styled.div`
     margin: auto;
     margin-top: 200px;
     margin-bottom: 40px;
-    background: url(${process.env.PUBLIC_URL}/gameover.svg);
+    background: url(${process.env.PUBLIC_URL}/img/gameover.svg);
 `
 
 const OverBtn = styled.button`

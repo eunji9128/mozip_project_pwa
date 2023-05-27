@@ -5,8 +5,8 @@ import styled from "styled-components";
 const FavBlocks = () => {
     let navigate = useNavigate();
     let [selected, setSelected] = useState([]);
-    const petURL = `url(${process.env.PUBLIC_URL}/favSpBlock.svg)`;
-    const petActiveURL = `url(${process.env.PUBLIC_URL}/favSpBlockActive.svg)`;
+    const petURL = `url(${process.env.PUBLIC_URL}/img/favSpBlock.svg)`;
+    const petActiveURL = `url(${process.env.PUBLIC_URL}/img/favSpBlockActive.svg)`;
     
     const handleSubmit = (e) => {
         e.preventDefault();
