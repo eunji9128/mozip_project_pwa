@@ -2,9 +2,11 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { color } from "../style/colorVar";
 import { useState } from "react";
+import Gameover from "./Gameover";
 
 const Test2 = () => {
     const navigate = useNavigate();
+    let [end, setEnd] = useState(false);
 
     const handleNavigate = (e) => {
         e.preventDefault();
@@ -82,6 +84,8 @@ const Test2 = () => {
             copy = copy + 1;
             setStep(copy);
             console.log(step);
+        } else {
+            setEnd(true);
         }
     }
 
@@ -99,26 +103,32 @@ const Test2 = () => {
                     <p>디자인에 진심이라면</p>
                 </HeaderContent>
             </Header>
-            <TitleBox>
-                {examData[step].question}
-            </TitleBox>
-            <Content>
-                <Exam id={examData[step].id}/>
-                {
-                    examData[step].buttons === 5 ?
-                    <Btn5Group>
-                        <Btn data-id="1" onClick={(e) => {handleClick(e)}}>①</Btn>
-                        <Btn data-id="2" onClick={(e) => {handleClick(e)}}>②</Btn>
-                        <Btn data-id="3" onClick={(e) => {handleClick(e)}}>③</Btn>
-                        <Btn data-id="4" onClick={(e) => {handleClick(e)}}>④</Btn>
-                        <Btn data-id="5" onClick={(e) => {handleClick(e)}}>⑤</Btn>
-                    </Btn5Group> :
-                    <Btn2Group>
-                        <Btn width="280px" data-id="1" onClick={(e) => {handleClick(e)}}>①</Btn>
-                        <Btn width="280px" data-id="2" onClick={(e) => {handleClick(e)}}>②</Btn>
-                    </Btn2Group>
-                }
-            </Content>
+            {
+                end ?
+                <Gameover /> :
+                <>
+                    <TitleBox>
+                        {examData[step].question}
+                    </TitleBox>
+                    <Content>
+                        <Exam id={examData[step].id}/>
+                        {
+                            examData[step].buttons === 5 ?
+                            <Btn5Group>
+                                <Btn data-id="1" onClick={(e) => {handleClick(e)}}>①</Btn>
+                                <Btn data-id="2" onClick={(e) => {handleClick(e)}}>②</Btn>
+                                <Btn data-id="3" onClick={(e) => {handleClick(e)}}>③</Btn>
+                                <Btn data-id="4" onClick={(e) => {handleClick(e)}}>④</Btn>
+                                <Btn data-id="5" onClick={(e) => {handleClick(e)}}>⑤</Btn>
+                            </Btn5Group> :
+                            <Btn2Group>
+                                <Btn width="280px" data-id="1" onClick={(e) => {handleClick(e)}}>①</Btn>
+                                <Btn width="280px" data-id="2" onClick={(e) => {handleClick(e)}}>②</Btn>
+                            </Btn2Group>
+                        }
+                    </Content>
+                </>
+            }
         </Container>
     )
 };
