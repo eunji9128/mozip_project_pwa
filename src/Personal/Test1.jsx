@@ -5,6 +5,7 @@ import React from "react";
 import { useState } from "react";
 import { colorData } from "./colorData";
 import { useNavigate } from "react-router-dom";
+import Gameover from "./Gameover";
 
 const Test1 = () => {
     const navigate = useNavigate();
@@ -60,11 +61,7 @@ const Test1 = () => {
             {
                 end || (progressVal == 30) ?
                 <>
-                    <Container>
-                        <Fail />
-                        <OverBtn>{true ? "▶ " : null}TRY AGAIN</OverBtn>
-                        <OverBtn>EXIT TEST</OverBtn>
-                    </Container>
+                    <Gameover />
                 </>
                 :
                 <>
@@ -123,7 +120,6 @@ const Header = styled.div`
     span {
         font-size: 30px;
         margin-right: 8px;
-        
     }
 `
 
@@ -198,26 +194,6 @@ const ColorGrid = styled.div`
         border-radius: 10px;
         margin: 6px;
     }
-`
-
-const Fail = styled.div`
-    width: 225px;
-    height: 225px;
-    margin: auto;
-    margin-top: 200px;
-    margin-bottom: 40px;
-    background: url(${process.env.PUBLIC_URL}/img/gameover.svg);
-`
-
-const OverBtn = styled.button`
-    width: 100%;
-    margin: auto;
-    background: none;
-    border: none;
-    color: ${color.mainColor};
-    font-family: "yapari";
-    font-size: 16px;
-    margin-top: 40px;
 `
 
 export default Test1
