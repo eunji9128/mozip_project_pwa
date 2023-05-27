@@ -118,7 +118,9 @@ const Test5 = () => {
   return (
     <Container>
       {end ? (
-        <></> // badge 획득 페이지
+        <>
+          <h1>Badge</h1>
+        </> // badge 획득 페이지
       ) : (
         <>
           <Header>
