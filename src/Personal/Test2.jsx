@@ -6,14 +6,10 @@ import Gameover from "./Gameover";
 
 const Test2 = () => {
     const navigate = useNavigate();
+    let [start, setStart] = useState(false);
     let [end, setEnd] = useState(false);
-
-    const handleNavigate = (e) => {
-        e.preventDefault();
-        navigate('/personal');
-    }
-
     let [step, setStep] = useState(1);
+
     const examData = [
         {},
         {
@@ -72,11 +68,16 @@ const Test2 = () => {
         },
     ];
 
+    const handleNavigate = (e) => {
+        e.preventDefault();
+        navigate('/personal');
+    }
+
     const handleClick = (e) => {
         e.preventDefault();
         const userAnswer = e.target.dataset.id;
         if (parseInt(userAnswer) === examData[step].answer) {
-            if (step === examData.length-1) {
+            if (step === examData.length - 1) {
                 console.log('done');
                 return
             }
@@ -91,43 +92,49 @@ const Test2 = () => {
 
     return (
         <Container>
-            <Header>
-                <span 
-                    className="material-symbols-outlined"
-                    onClick={(e) => {handleNavigate(e)}}
-                >
-                    chevron_left
-                </span>
-                <HeaderContent>
-                    <h3>디자인 모의고사</h3>
-                    <p>디자인에 진심이라면</p>
-                </HeaderContent>
-            </Header>
             {
                 end ?
-                <Gameover /> :
-                <>
-                    <TitleBox>
-                        {examData[step].question}
-                    </TitleBox>
-                    <Content>
-                        <Exam id={examData[step].id}/>
+                    <Gameover /> :
+                    <>
+                        <Header>
+                            <span
+                                className="material-symbols-outlined"
+                                onClick={(e) => { handleNavigate(e) }}
+                            >
+                                chevron_left
+                            </span>
+                            <HeaderContent>
+                                <h3>디자인 모의고사</h3>
+                                <p>디자인에 진심이라면</p>
+                            </HeaderContent>
+                        </Header>
                         {
-                            examData[step].buttons === 5 ?
-                            <Btn5Group>
-                                <Btn data-id="1" onClick={(e) => {handleClick(e)}}>①</Btn>
-                                <Btn data-id="2" onClick={(e) => {handleClick(e)}}>②</Btn>
-                                <Btn data-id="3" onClick={(e) => {handleClick(e)}}>③</Btn>
-                                <Btn data-id="4" onClick={(e) => {handleClick(e)}}>④</Btn>
-                                <Btn data-id="5" onClick={(e) => {handleClick(e)}}>⑤</Btn>
-                            </Btn5Group> :
-                            <Btn2Group>
-                                <Btn width="280px" data-id="1" onClick={(e) => {handleClick(e)}}>①</Btn>
-                                <Btn width="280px" data-id="2" onClick={(e) => {handleClick(e)}}>②</Btn>
-                            </Btn2Group>
+                            !start ?
+                            <TestLanding onClick={(e) => {setStart(true)}}/> :
+                            <>
+                                <TitleBox>
+                                    {examData[step].question}
+                                </TitleBox>
+                                <Content>
+                                    <Exam id={examData[step].id} />
+                                    {
+                                        examData[step].buttons === 5 ?
+                                            <Btn5Group>
+                                                <Btn data-id="1" onClick={(e) => { handleClick(e) }}>①</Btn>
+                                                <Btn data-id="2" onClick={(e) => { handleClick(e) }}>②</Btn>
+                                                <Btn data-id="3" onClick={(e) => { handleClick(e) }}>③</Btn>
+                                                <Btn data-id="4" onClick={(e) => { handleClick(e) }}>④</Btn>
+                                                <Btn data-id="5" onClick={(e) => { handleClick(e) }}>⑤</Btn>
+                                            </Btn5Group> :
+                                            <Btn2Group>
+                                                <Btn width="280px" data-id="1" onClick={(e) => { handleClick(e) }}>①</Btn>
+                                                <Btn width="280px" data-id="2" onClick={(e) => { handleClick(e) }}>②</Btn>
+                                            </Btn2Group>
+                                    }
+                                </Content>
+                            </>
                         }
-                    </Content>
-                </>
+                    </>
             }
         </Container>
     )
@@ -139,6 +146,7 @@ const Container = styled.div`
 
 const Header = styled.div`
     width: 100%;
+    height: 50px;
     display: flex;
 
     span {
@@ -157,6 +165,12 @@ const HeaderContent = styled.div`
         font-size: 12px;
         color: ${color.gray400};
     }
+`
+
+const TestLanding = styled.div`
+    width: 100%;
+    height: 100vh;
+    background-image: url(${process.env.PUBLIC_URL}/img/design_exam_landing.svg);
 `
 
 const TitleBox = styled.div`
