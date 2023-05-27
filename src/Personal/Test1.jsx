@@ -123,7 +123,6 @@ const Header = styled.div`
     span {
         font-size: 30px;
         margin-right: 8px;
-        
     }
 `
 
