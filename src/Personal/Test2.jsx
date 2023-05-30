@@ -76,6 +76,7 @@ const Test2 = () => {
     const handleClick = (e) => {
         e.preventDefault();
         const userAnswer = e.target.dataset.id;
+        console.log(e.target.dataset);
         if (parseInt(userAnswer) === examData[step].answer) {
             if (step === examData.length - 1) {
                 console.log('done');
