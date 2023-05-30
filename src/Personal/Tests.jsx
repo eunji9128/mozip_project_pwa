@@ -2,6 +2,7 @@ import { useParams } from "react-router"
 import NoTest from "./NoTest";
 import Test1 from "./Test1";
 import Test2 from "./Test2";
+import Test3 from "./Test3";
 
 
 export const Tests = () => {
@@ -11,6 +12,8 @@ export const Tests = () => {
             return <Test1 />
         case '2':
             return <Test2 />
+        case '3':
+            return <Test3 />    
         default:
             return <NoTest />
     }
