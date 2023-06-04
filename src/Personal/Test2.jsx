@@ -95,7 +95,7 @@ const Test2 = () => {
         <Container>
             {
                 end ?
-                    <Gameover score={step-1}/> :
+                    <Gameover score={step-1} id="2"/> :
                     <>
                         <Header>
                             <span
