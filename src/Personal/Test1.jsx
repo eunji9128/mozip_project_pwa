@@ -51,7 +51,7 @@ const Test1 = () => {
     }
 
     useEffect(() => {
-        if (start && progressVal < 30) {
+        if (start && progressVal < 60) {
             let a = setTimeout(() => {setProgressVal(progressVal + 1)}, 1000);
         }
     })
@@ -59,7 +59,7 @@ const Test1 = () => {
     return (
         <Container>
             {
-                end || (progressVal == 30) ?
+                end || (progressVal == 60) ?
                 <>
                     <Gameover score={step} id="1" />
                 </>
@@ -82,7 +82,7 @@ const Test1 = () => {
                         <TestLanding onClick={()=>{setStart(true)}}/> :
                         <>
                             <ProgressBar>
-                                <progress max="30" value={progressVal}></progress>
+                                <progress max="60" value={progressVal}></progress>
                                 <p>{progressVal}</p>
                             </ProgressBar>
                             <TestContents>
