@@ -61,7 +61,7 @@ const Test1 = () => {
             {
                 end || (progressVal == 30) ?
                 <>
-                    <Gameover />
+                    <Gameover score={step} />
                 </>
                 :
                 <>
