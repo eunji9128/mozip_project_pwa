@@ -5,12 +5,18 @@ import { color } from "../style/colorVar";
 
 const ProfileSetBlocks = () => {
     const profileURLs = [
-        `${process.env.PUBLIC_URL}/img/profile1.svg`,
-        `${process.env.PUBLIC_URL}/img/profile2.svg`,
-        `${process.env.PUBLIC_URL}/img/profile3.svg`,
-        `${process.env.PUBLIC_URL}/img/profile4.svg`,
-        `${process.env.PUBLIC_URL}/img/profile5.svg`,
-        `${process.env.PUBLIC_URL}/img/profile6.svg`,
+        `${process.env.PUBLIC_URL}/img/profile/profile1.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile2.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile3.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile4.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile5.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile6.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile7.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile8.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile9.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile10.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile11.png`,
+        `${process.env.PUBLIC_URL}/img/profile/profile12.png`,
     ]
     let [imgArr, setImgArr] = useState(new Array(12).fill(0));
     let [selectedImg, setSelectedImg] = useState(profileURLs[0]);
@@ -18,7 +24,7 @@ const ProfileSetBlocks = () => {
 
     const handleSelect = (idx) => {
         // let newSrc = "url(/img/profile" + (idx < 6 ? (idx + 1) : 1) + ".svg)";
-        let newSrc = profileURLs[idx < 6 ? idx : 0];
+        let newSrc = profileURLs[idx < 12 ? idx : 0];
         console.log('newSrc: ', newSrc);
         setSelectedImg(newSrc);
         console.log(selectedImg);
@@ -44,7 +50,7 @@ const ProfileSetBlocks = () => {
                                 type="radio"
                                 name="profile-blocks"
                                 value={idx}
-                                idx={idx < 6 ? idx+1 : 1}
+                                idx={idx < 12 ? idx+1 : 1}
                                 onClick={() => {handleSelect(idx)}}
                             />
                         )
@@ -69,7 +75,7 @@ const Container = styled.div`
 const SelectedProfile = styled.div`
     width: 120px;
     height: 120px;
-    background-image: url(${process.env.PUBLIC_URL}/img/profile1.svg); // 초기 선택 이미지는 profile1.svg
+    background-image: url(${process.env.PUBLIC_URL}/img/profile/profile1.png); // 초기 선택 이미지는 profile1.png
     border-radius: 45px;
     margin-top: 60px;
     background-size: cover;
@@ -82,12 +88,13 @@ const ProfileBlocks = styled.input`
 
     width: 70px;
     height: 70px;
-    background: url(${process.env.PUBLIC_URL}/img/profile${props => props.idx || 1}.svg);
+    background: url(${process.env.PUBLIC_URL}/img/profile/profile${props => props.idx || 1}.png);
+    background-size: contain;
     margin: 6px;
-    border-radius: 25px;
+    border-radius: 60px;
 
     &:checked {
-        border: 1px solid #ffffff;
+        border: 1px solid ${color.mainColor};
     }
 `
 

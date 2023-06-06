@@ -1,7 +1,18 @@
 import styled from "styled-components";
 import { color } from "../style/colorVar";
+import { project_list } from "../constant/Projects";
+import { member_list } from "../constant/Members";
 
-export const ProjectCard = () => {
+export const ProjectCard = (props) => {
+    let project = project_list[props.index ? props.index : 0]
+
+    function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
+    }
+    
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    shuffle(numbers);
+      
     return (
         <Container 
             flexDirection={"row"} 
@@ -9,55 +20,50 @@ export const ProjectCard = () => {
             padding={"8px"} 
             margin={"0 0 8px 0"}
         >
-            <CardImg />
+            <CardImg idx={project.id}/>
             <ContentBox>
                 <div>
                     <BadgeGroup>
-                        <Badge>여행</Badge>
-                        <Badge>여행</Badge>
-                        <Badge>여행</Badge>
-                        <Badge>여행</Badge>
+                        {project.badge_list.map((item, index)=>{
+                            return <Badge>{item}</Badge>
+                        })}
                     </BadgeGroup>
                     <Title>
-                        [프로젝트] 프로젝트 타이틀 설명
+                        {project.title}
                     </Title>
                 </div>
                 <UserContainer>
                     <UserGroup>
-                        <User />
-                        <User />
-                        <User />
-                        <User />
+                        {Array.apply(null, {length: project.current_personnel}).map((item, index)=>{
+                            return <User idx={numbers[index]} />
+                        })}
                     </UserGroup>
-                    <UserContent>5/15 모집 완료</UserContent>
+                    <UserContent>{project.current_personnel}/{project.max_personnel} {project.current_personnel === project.max_personnel ? "모집 완료" : "모집중"}</UserContent>
                 </UserContainer>
             </ContentBox>
         </Container>
     )
 };
 
-export const MemberCard = () => {
+export const MemberCard = (props) => {
+    let member = member_list[props.index ? props.index : 0]
+
     return (
         <Container width={"300px"} padding={"16px 8px"} margin={"0 8px 0 0"}>
             <Header>
                 <Box>
-                    <MemberImg />
+                    <MemberImg profile_idx={member.profile_id}/>
                 </Box>
                 <MemberInfo>
-                    <h2>이름</h2>
-                    <p>UIUX 디자이너 신입</p>
+                    <h2>{member.name}</h2>
+                    <p>{member.role} {member.career}</p>
                 </MemberInfo>
                 <ChatBtn>채팅</ChatBtn>
             </Header>
             <BadgeGroup height={"auto"} fontSize={"14px"} padding={"16px 8px 0 8px"}>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
+                {member.badge_list.map((item, index)=>{
+                    return <Badge>{item}</Badge>
+                })}
             </BadgeGroup>
         </Container>
     )
@@ -78,7 +84,8 @@ const Container = styled.div`
 const CardImg = styled.div`
     width: 90px;
     height: 90px;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/project/project${props => props.idx || 1}.png) no-repeat;
+    background-size: contain;
     border-radius: 10px;
 `
 
@@ -115,10 +122,14 @@ const Badge = styled.div`
 `
 
 const Title = styled.div`
+    width: 196px;
     height: 50%;
     font-size: 15px;
     font-weight: bold;
     padding: 4px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `
 
 const UserContainer = styled.div`
@@ -140,7 +151,8 @@ const User = styled.div`
     height: 25px;
     margin: -2px;
     border-radius: 50%;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/profile/profile${props => props.idx || 1}.png) no-repeat;
+    background-size: contain;
     border: 1px solid ${color.gray500};
 `
 
@@ -164,7 +176,8 @@ const Box = styled.div`
 const MemberImg = styled.div`
     width: 60px;
     height: 60px;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/profile/profile${props => props.profile_idx || 1}.png) no-repeat;
+    background-size: contain;
     border-radius: 50%;
 `
 
