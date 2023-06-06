@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { color } from "../style/colorVar";
 import { project_list } from "../constant/Projects";
+import { member_list } from "../constant/Members";
 
 export const ProjectCard = (props) => {
-    console.log("index", props.index)
     let project = project_list[props.index ? props.index : 0]
 
     function shuffle(array) {
@@ -18,7 +18,7 @@ export const ProjectCard = (props) => {
             <CardImg idx={project.id}/>
             <ContentBox>
                 <BadgeGroup>
-                    {project.badge_list.map((item,index)=>{
+                    {project.badge_list.map((item, index)=>{
                         return <Badge>{item}</Badge>
                     })}
                 </BadgeGroup>
@@ -38,28 +38,25 @@ export const ProjectCard = (props) => {
     )
 };
 
-export const MemberCard = () => {
+export const MemberCard = (props) => {
+    let member = member_list[props.index ? props.index : 0]
+
     return (
         <Container width={"300px"} padding={"16px 8px"} margin={"0 8px 0 0"}>
             <Header>
                 <Box>
-                    <MemberImg />
+                    <MemberImg profile_idx={member.profile_id}/>
                 </Box>
                 <MemberInfo>
-                    <h2>이름</h2>
-                    <p>UIUX 디자이너 신입</p>
+                    <h2>{member.name}</h2>
+                    <p>{member.role} {member.career}</p>
                 </MemberInfo>
                 <ChatBtn>채팅</ChatBtn>
             </Header>
             <BadgeGroup height={"auto"} fontSize={"14px"} padding={"16px 8px 0 8px"}>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
+                {member.badge_list.map((item, index)=>{
+                    return <Badge>{item}</Badge>
+                })}
             </BadgeGroup>
         </Container>
     )
@@ -168,7 +165,8 @@ const Box = styled.div`
 const MemberImg = styled.div`
     width: 60px;
     height: 60px;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/profile/profile${props => props.profile_idx || 1}.png) no-repeat;
+    background-size: contain;
     border-radius: 50%;
 `
 

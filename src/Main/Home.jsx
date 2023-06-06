@@ -27,9 +27,9 @@ const Home = () => {
                 <h1>새로운 멤버</h1>
                 <div style={{overflowX: "scroll"}}>
                     <FlexBox>
-                        <MemberCard />
-                        <MemberCard />
-                        <MemberCard />
+                        <MemberCard index={0}/>
+                        <MemberCard index={1}/>
+                        <MemberCard index={2}/>
                         {/* 데이터 바인딩으로 변환해줘야 함 */}
                     </FlexBox>
                 </div>
