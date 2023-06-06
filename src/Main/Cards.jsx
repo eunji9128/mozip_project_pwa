@@ -136,7 +136,7 @@ const User = styled.div`
     height: 25px;
     margin: -2px;
     border-radius: 50%;
-    background: url(${process.env.PUBLIC_URL}/img/profile${props => props.idx || 1}.png) no-repeat;
+    background: url(${process.env.PUBLIC_URL}/img/profile/profile${props => props.idx || 1}.png) no-repeat;
     background-size: contain;
     border: 1px solid ${color.gray500};
 `
