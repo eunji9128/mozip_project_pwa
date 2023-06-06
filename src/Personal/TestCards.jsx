@@ -26,7 +26,7 @@ const TestCard = (props) => {
 };
 
 const Container = styled.div`
-    margin: 4px;
+    // margin: 4px;
 `
 
 const Card = styled.div`

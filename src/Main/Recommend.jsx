@@ -27,7 +27,7 @@ const Recommend = () => {
                 </BadgeGroup>
             </div>
             <Hr />
-            <Container padding={"16px"}>
+            <Container padding={"16px 0"}>
                 <h1>허성원님을 위한 추천 프로젝트</h1>
                 {
                     cards.map((data, i) => {
@@ -51,7 +51,7 @@ const Container = styled.div`
 `
     
 const BtnGroup = styled.div`
-    width: 170%;
+    width: 200%;
     padding: 4px;
     overflow-x: scroll;
 `
@@ -60,7 +60,7 @@ const FilterBtn = styled.button`
     padding: 8px 16px;
     margin: 0 8px 0 0;
     background: ${color.gray800};
-    border: ${color.gray700};
+    border: 1px solid ${color.gray600};
     border-radius: 10px;
     color: ${color.gray50};    
     font-size: 14px;
@@ -85,6 +85,7 @@ const Badge = styled.div`
     color: ${color.gray50};
     text-align: center;
     vertical-align: middle;
+    opacity: 0.7;
 `
 
 const Hr = styled.hr`

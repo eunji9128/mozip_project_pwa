@@ -63,7 +63,7 @@ const Personal = () => {
 }
 
 const Container = styled.div`
-    width: 100vw;
+    width: 100%;
     padding: 16px;    
 `
     
@@ -103,10 +103,12 @@ const Badge = styled.div`
 `
 
 const TestCardGroup = styled.div`
+    width: 100%;
     margin-top: 16px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
 `
 
 export default Personal

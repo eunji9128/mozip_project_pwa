@@ -7,21 +7,21 @@ const Home = () => {
         <Container>
             <HomeBanner />
             <StyledBtn>내 프로필 설정하기</StyledBtn>
-            <Container margin={"16px 0 0 0"}>
+            <Container padding="0" margin={"40px 0 0 0"}>
                 <h1>인기 프로젝트</h1>
                 <ProjectCard />
                 <ProjectCard />
                 <ProjectCard />
                 {/* 데이터 바인딩으로 변환해줘야 함 */}
             </Container>
-            <Container margin={"16px 0 0 0"}>
+            <Container padding="0" margin={"40px 0 0 0"}>
                 <h1>새로운 프로젝트</h1>
                 <ProjectCard />
                 <ProjectCard />
                 <ProjectCard />
                 {/* 데이터 바인딩으로 변환해줘야 함 */}
             </Container>
-            <Container margin={"16px 0 0 0"}>
+            <Container padding="0" margin={"40px 0 0 0"}>
                 <h1>새로운 멤버</h1>
                 <div style={{overflowX: "scroll"}}>
                     <FlexBox>
@@ -39,8 +39,12 @@ const Home = () => {
 
 const Container = styled.div`
     width: 100%;
-    padding: 16px;
+    padding: ${props => props.padding || "16px"};
     margin: ${props => props.margin || 0};
+
+    h1 {
+        margin-bottom: 12px;
+    }
 `
 
 const HomeBanner = styled.div`
@@ -54,7 +58,7 @@ const StyledBtn = styled.button`
     width: 100%;
     height: 52px;
     border: none;
-    border-radius: 30px;
+    border-radius: 10px;
     background: ${color.mainColor};
     color: ${color.gray900};
     font-size: 18px;

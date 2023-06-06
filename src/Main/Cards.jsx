@@ -3,18 +3,25 @@ import { color } from "../style/colorVar";
 
 export const ProjectCard = () => {
     return (
-        <Container flexDirection={"row"} padding={"8px"} margin={"0 0 8px 0"}>
+        <Container 
+            flexDirection={"row"} 
+            justifyContent={"space-around"}
+            padding={"8px"} 
+            margin={"0 0 8px 0"}
+        >
             <CardImg />
             <ContentBox>
-                <BadgeGroup>
-                    <Badge>여행</Badge>
-                    <Badge>여행</Badge>
-                    <Badge>여행</Badge>
-                    <Badge>여행</Badge>
-                </BadgeGroup>
-                <Title>
-                    [프로젝트] 프로젝트 타이틀 설명
-                </Title>
+                <div>
+                    <BadgeGroup>
+                        <Badge>여행</Badge>
+                        <Badge>여행</Badge>
+                        <Badge>여행</Badge>
+                        <Badge>여행</Badge>
+                    </BadgeGroup>
+                    <Title>
+                        [프로젝트] 프로젝트 타이틀 설명
+                    </Title>
+                </div>
                 <UserContainer>
                     <UserGroup>
                         <User />
@@ -63,7 +70,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection || "column"};
     align-items: start;
-    justify-content: center;
+    justify-content: ${props => props.justifyContent || "center"};
     padding: ${props => props.padding || 0};
     margin: ${props => props.margin || 0};
 `
@@ -76,8 +83,12 @@ const CardImg = styled.div`
 `
 
 const ContentBox = styled.div`
-    height: 100%;
+    height: 88px;
     padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    // align-items: stretch;
+    justify-content: space-between;
 
     h2 {
         margin: 4px 0;
@@ -85,7 +96,7 @@ const ContentBox = styled.div`
 `
 
 const BadgeGroup = styled.div`
-    height: ${props => props.height || "20%"};
+    height: ${props => props.height || "20px"};
     display: flex;
     flex-direction: row;
     font-size: ${props => props.fontSize || "10px"};
