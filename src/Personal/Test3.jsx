@@ -2,11 +2,13 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { color } from "../style/colorVar";
 import { useState } from "react";
+import TestBadge from "./Badges";
+import { badgeData } from "./badgeData";
 
 const Test3 = () => {
     const navigate = useNavigate();
     let [start, setStart] = useState(false);
-    let [end, setEnd] = useState(false);
+    let [finish, setFinish] = useState(false);
     let [step, setStep] = useState(1);
     let [total, setTotal] = useState(0);
 
@@ -108,7 +110,7 @@ const Test3 = () => {
         console.log('total: ', total);
         if (step === testData.length - 1) {
             console.log('done');
-            setEnd(true);
+            setFinish(true);
             return
         }
         let copy = step;
@@ -125,7 +127,7 @@ const Test3 = () => {
         console.log('total: ', total);
         if (step === testData.length - 1) {
             console.log('done');
-            setEnd(true);
+            setFinish(true);
             return
         }
         let copy = step;
@@ -137,8 +139,12 @@ const Test3 = () => {
     return (
         <Container>
             {
-                end ?
-                <h1>{total>0 ? "leader" : "follower"}</h1> :
+                finish ?
+                (
+                    total > 0 ?
+                    <TestBadge badgeData={badgeData[2]} /> :
+                    <TestBadge badgeData={badgeData[3]} />
+                ) :
                 <>
                     <Header>
                         <span
