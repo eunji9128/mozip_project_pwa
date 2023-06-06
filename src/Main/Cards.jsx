@@ -47,7 +47,10 @@ export const ProjectCard = (props) => {
                             return <User idx={numbers[index]} />
                         })}
                     </UserGroup>
-                    <UserContent>{project.current_personnel}/{project.max_personnel} {project.current_personnel === project.max_personnel ? "모집 완료" : "모집중"}</UserContent>
+                    <UserContent>
+                        <div className="material-symbols-outlined">diversity_3</div>
+                        {project.current_personnel}/{project.max_personnel} {project.current_personnel === project.max_personnel ? "모집 완료" : "모집중"}
+                    </UserContent>
                 </UserContainer>
             </ContentBox>
         </Container>
@@ -169,6 +172,14 @@ const UserContent = styled.div`
     width: 40%;
     text-align: right;
     margin: auto;
+    display:flex;
+    justify-content: center;
+
+    div {
+        margin-right: 4px;
+        font-size: 14px;
+        color: ${color.gray400}
+    }
 `
 
 const Header = styled.div`
