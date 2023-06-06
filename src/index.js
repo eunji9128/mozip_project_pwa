@@ -17,6 +17,8 @@ import PersonalHome from './Personal/PersonalHome';
 import { Tests } from './Personal/Tests';
 import { ProjectDetail } from './Project/ProjectDetail';
 import ProjectHome from './Project/ProjectHome';
+import ChatHome from './Chat/ChatHome';
+import { ChatList } from './Chat/ChatList';
 
 const basename = process.env.PUBLIC_URL;
 const routes = [
@@ -80,7 +82,13 @@ const routes = [
   },
   {
     path: '/chat',
-    element: <h1>chat page</h1>,
+    element: <ChatHome />,
+    children: [
+      {
+        path: '',
+        element: <ChatList />
+      },
+    ]
   },
   {
     path: '/mypage',
