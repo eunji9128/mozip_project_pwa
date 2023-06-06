@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mozip_project_pwa/static/css/main.58db004b.css",
-    "main.js": "/mozip_project_pwa/static/js/main.5a890774.js",
+    "main.js": "/mozip_project_pwa/static/js/main.a98d13bc.js",
     "static/js/787.41bd328f.chunk.js": "/mozip_project_pwa/static/js/787.41bd328f.chunk.js",
     "static/media/SBaggro_L.ttf": "/mozip_project_pwa/static/media/SBaggro_L.d52f7dfb589c2ed5daab.ttf",
     "static/media/SBaggro_B.ttf": "/mozip_project_pwa/static/media/SBaggro_B.2bd2f65ded5ef6e562d3.ttf",
@@ -10,11 +10,11 @@
     "static/media/yapari.ttf": "/mozip_project_pwa/static/media/yapari.944cd3330ee0a2579bb2.ttf",
     "index.html": "/mozip_project_pwa/index.html",
     "main.58db004b.css.map": "/mozip_project_pwa/static/css/main.58db004b.css.map",
-    "main.5a890774.js.map": "/mozip_project_pwa/static/js/main.5a890774.js.map",
+    "main.a98d13bc.js.map": "/mozip_project_pwa/static/js/main.a98d13bc.js.map",
     "787.41bd328f.chunk.js.map": "/mozip_project_pwa/static/js/787.41bd328f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.58db004b.css",
-    "static/js/main.5a890774.js"
+    "static/js/main.a98d13bc.js"
   ]
 }
