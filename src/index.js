@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyle } from './style/styled';
-import { Favorites, ProfileSet, SignupBirth, SignupName } from './components/Signup';
+import { Favorites, ProfileSet, SignupBirth, SignupName, Job, Seniority } from './components/Signup';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './components/Landing';
 import Main from './Main/Main';
@@ -29,6 +29,14 @@ const routes = [
       {
         path: 'birth',
         element: <SignupBirth />,
+      },
+      {
+        path: 'job',
+        element: <Job />,
+      },
+      {
+        path: 'seniority',
+        element: <Seniority />,
       },
       {
         path: 'favorites',
