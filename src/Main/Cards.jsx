@@ -14,17 +14,24 @@ export const ProjectCard = (props) => {
     shuffle(numbers);
       
     return (
-        <Container flexDirection={"row"} padding={"8px"} margin={"0 0 8px 0"}>
+        <Container 
+            flexDirection={"row"} 
+            justifyContent={"space-around"}
+            padding={"8px"} 
+            margin={"0 0 8px 0"}
+        >
             <CardImg idx={project.id}/>
             <ContentBox>
-                <BadgeGroup>
-                    {project.badge_list.map((item, index)=>{
-                        return <Badge>{item}</Badge>
-                    })}
-                </BadgeGroup>
-                <Title>
-                    {project.title}
-                </Title>
+                <div>
+                    <BadgeGroup>
+                        {project.badge_list.map((item, index)=>{
+                            return <Badge>{item}</Badge>
+                        })}
+                    </BadgeGroup>
+                    <Title>
+                        {project.title}
+                    </Title>
+                </div>
                 <UserContainer>
                     <UserGroup>
                         {Array.apply(null, {length: project.current_personnel}).map((item, index)=>{
@@ -69,7 +76,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection || "column"};
     align-items: start;
-    justify-content: center;
+    justify-content: ${props => props.justifyContent || "center"};
     padding: ${props => props.padding || 0};
     margin: ${props => props.margin || 0};
 `
@@ -83,8 +90,12 @@ const CardImg = styled.div`
 `
 
 const ContentBox = styled.div`
-    height: 100%;
+    height: 88px;
     padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    // align-items: stretch;
+    justify-content: space-between;
 
     h2 {
         margin: 4px 0;
@@ -92,7 +103,7 @@ const ContentBox = styled.div`
 `
 
 const BadgeGroup = styled.div`
-    height: ${props => props.height || "20%"};
+    height: ${props => props.height || "20px"};
     display: flex;
     flex-direction: row;
     font-size: ${props => props.fontSize || "10px"};

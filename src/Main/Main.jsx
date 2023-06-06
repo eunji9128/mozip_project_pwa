@@ -46,7 +46,6 @@ const Main = () => {
                 <TabGroup>
                     <TabBtn id="" onClick={(e) => handleNavigate(e)}>홈</TabBtn>
                     <TabBtn id="recommend" onClick={(e) => handleNavigate(e)}>추천</TabBtn>
-                    <TabBtn id="completed" onClick={(e) => handleNavigate(e)}>완료된 프로젝트</TabBtn>
                 </TabGroup>
             </Header>
             <Outlet />
