@@ -55,4 +55,32 @@ export const project_list = [
     current_personnel: 1,
     max_personnel: 5,
   },
+  {
+    id: 9,
+    title: "🌤️[날씨]☀️ 오늘 날씨에 맞는 코디 추천 플랫폼",
+    badge_list: ["날씨", "주 2회", "서울", "오프라인"],
+    current_personnel: 5,
+    max_personnel: 5,
+  },
+  {
+    id: 10,
+    title: "[유아] 유아용품 전문 중고거래 앱 개발 플랫폼",
+    badge_list: ["육아", "주 2회", "서울", "블렌디드"],
+    current_personnel: 5,
+    max_personnel: 5,
+  },
+  {
+    id: 11,
+    title: "[미술품] 🎨미술 작품 거래 차트 서비스 플랫폼",
+    badge_list: ["미술품", "주 3회", "온라인"],
+    current_personnel: 4,
+    max_personnel: 5,
+  },
+  {
+    id: 12,
+    title: "[전시회] 디자이너의 디자이너를 위한 디자이너에 의한 전시회",
+    badge_list: ["전시회", "주 1회", "서울", "오프라인"],
+    current_personnel: 5,
+    max_personnel: 5,
+  },
 ];

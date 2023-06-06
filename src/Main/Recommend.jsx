@@ -31,7 +31,7 @@ const Recommend = () => {
                 <h1>허성원님을 위한 추천 프로젝트</h1>
                 {
                     cards.map((data, i) => {
-                        return <ProjectCard key={i}/>
+                        return <ProjectCard index={i}/>
                     })
                 }
             </Container>
