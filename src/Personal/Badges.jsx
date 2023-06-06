@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { color } from "../style/colorVar";
+import { useNavigate } from "react-router-dom";
 
 const TestBadge = (props) => {
+    const navigate = useNavigate();
+
     return (
         <Background id={props.badgeData.id}>
             <Wrap>
-                <ExitBtn>X</ExitBtn>
+                <ExitBtn onClick={()=>{navigate('/personal')}}>X</ExitBtn>
             </Wrap>
             <Title>AWARD</Title>
             <BadgeImg id={props.badgeData.id} />
