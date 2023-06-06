@@ -6,7 +6,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyle } from './style/styled';
 import { Favorites, ProfileSet, SignupBirth, SignupName } from './components/Signup';
-import { RouterProvider, createBrowserRouter, useParams } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './components/Landing';
 import Main from './Main/Main';
 import Home from './Main/Home';
@@ -15,8 +15,6 @@ import Completed from './Main/Completed';
 import Personal from './Personal/Personal';
 import PersonalHome from './Personal/PersonalHome';
 import { Tests } from './Personal/Tests';
-import TestBadge from './Personal/Badges';
-import { badgeData } from './Personal/badgeData';
 
 const basename = process.env.PUBLIC_URL;
 const routes = [

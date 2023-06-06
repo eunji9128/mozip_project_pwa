@@ -19,10 +19,10 @@ const Recommend = () => {
             </div>
             <div style={{overflowX: "scroll"}}>
                 <BadgeGroup padding={"4px"} fontSize={"14px"}>
-                    <Badge>온라인🏠</Badge>
-                    <Badge>블랜디드💻</Badge>
-                    <Badge>여행🌴</Badge>
-                    <Badge>운동💪</Badge>
+                    <Badge>온라인 🏠</Badge>
+                    <Badge>블랜디드 💻</Badge>
+                    <Badge>여행 🌴</Badge>
+                    <Badge>운동 💪</Badge>
                     <Badge>Figma</Badge>
                 </BadgeGroup>
             </div>
@@ -84,6 +84,7 @@ const Badge = styled.div`
     border-radius: 15px;
     color: ${color.gray50};
     text-align: center;
+    vertical-align: middle;
 `
 
 const Hr = styled.hr`
