@@ -191,6 +191,7 @@ const TitleBox = styled.div`
     
     span {
         font-size: 18px;
+        font-weight: bold;
         text-align: center;
     }
 
