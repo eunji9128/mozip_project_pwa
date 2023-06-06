@@ -7,27 +7,32 @@ const Personal = () => {
     let tests = [
         {
             id: 1,
+            category: "디자이너",
             name: "절대 색감 테스트",
             content: "이거 같은 색 아니에요? \n이건 #00FFBB에요.",
         },
         {
             id: 2,
             name: "디자인 모의고사",
+            category: "디자이너",
             content: "너.. 디자인에 \n진심이라면.. 들어와",
         },
         {
             id: 3,
             name: "리더/팔로워 유형 테스트",
+            category: "공통",
             content: "저기.. 누가 팀장 \n하실래요?..",
         },
         {
             id: 4,
             name: "꼰대 테스트",
+            category: "공통",
             content: "라떼는 말이야.. \n이런 건 꿈도 못꿨어.",
         },
         {
             id: 5,
             name: "디자이너 빙고 테스트",
+            category: "디자이너",
             content: "야 너두? \n디자이너라면 격공",
         },
     ];
@@ -78,7 +83,7 @@ const Title = styled.div`
 const BadgeGroup = styled.div`
     height: ${props => props.height || "20%"};
     display: flex;
-    flex-direction: row;
+    flex-direction: colomn;
     font-size: ${props => props.fontSize || "10px"};
     margin: auto;
     padding: ${props => props.padding || 0};
@@ -95,6 +100,9 @@ const Badge = styled.div`
 
 const TestCardGroup = styled.div`
     margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 `
 
 export default Personal

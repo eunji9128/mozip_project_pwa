@@ -11,48 +11,67 @@ const TestCard = (props) => {
     }
     
     return (
-        <Container onClick={(e)=>{handleClick(e)}}>
-            <ImgBox />
-            <Content>
-                <h1>{props.test.name}</h1>
-                <p dangerouslySetInnerHTML={{__html: props.test.content.replace(/\n/g, '<br>')}} />
-            </Content>
+        <Container>
+            
+            <Card id={props.test.id} onClick={(e)=>{handleClick(e)}}>
+                <Badge>{props.test.category}</Badge>
+                {/* <ImgBox /> */}
+                <Content>
+                    <p dangerouslySetInnerHTML={{__html: props.test.content.replace(/\n/g, '<br>')}} />
+                </Content>
+            </Card>
+            <CardLabel>{props.test.name}</CardLabel>
         </Container>
     )
 };
 
 const Container = styled.div`
-    width: 100%;
-    height: 100px;
-    margin-bottom: 8px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    margin: 4px;
 `
 
-const ImgBox = styled.div`
-    width: 90px;
-    height: 90px;
-    background: ${color.gray700};
+const Card = styled.div`
+    width: 150px;
+    height: 150px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    background: url(${process.env.PUBLIC_URL}/img/test_grid${props => props.id || "1"}.svg);
     border-radius: 10px;
 `
 
+const Badge = styled.span`
+    padding: 4px 8px;
+    border-radius: 10px;
+    background: ${color.mainColor};
+    color: ${color.gray900};
+    font-size: 14px;
+`
+
 const Content = styled.div`
-    width: auto;
-    height: 100%;
-    padding: 0 16px;
+    width: 100%;
+    height: 40%;
+    padding: 0 12px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    border-radius: 0 0 10px 10px;
     color: ${color.gray50};
-
-    h1 {
-        font-size: 16px;
-    }
+    text-align: left;
+    background: ${color.gray600};
+    opacity: 0.8;
 
     p {
         font-size: 14px;
+        letter-spacing: -0.5px;
     }
+`
+
+const CardLabel = styled.p`
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 8px;
 `
 
 export default TestCard
