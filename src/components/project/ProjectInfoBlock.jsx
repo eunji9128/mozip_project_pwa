@@ -61,7 +61,7 @@ const ProjectInfoBlock = () => {
         <h2>| 진행방식</h2>
         <p>{process}</p>
         <h2>| 이런 분들께 추천드려요</h2>
-        <p>{suggestion}</p>
+        <span>{suggestion}</span>
       </InfoBlock>
     </Container>
   );
@@ -73,7 +73,7 @@ const Container = styled.div`
 `;
 
 const InfoBlock = styled.div`
-  padding: 32px 16px 2px 16px;
+  padding: 32px 16px 32px 16px;
 
   border-bottom: 6px solid ${color.gray800};
 
@@ -99,18 +99,25 @@ const InfoBlock = styled.div`
     word-break: keep-all;
     margin-bottom: 30px;
   }
+
+  span {
+    font-size: 14px;
+    color: ${color.gray50};
+    white-space: pre-line;
+    word-break: keep-all;
+  }
 `;
 
 const ProjectInfoDetailRowContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
   margin-top: 12px;
 
   div {
     font-size: 20px;
     margin-right: 6px;
+    color: ${color.gray400};
   }
 
   span {
@@ -122,6 +129,7 @@ const ProjectInfoDetailRowContainer = styled.div`
   p {
     font-size: 14px;
     color: ${color.gray50};
+    margin: 0;
   }
 `;
 

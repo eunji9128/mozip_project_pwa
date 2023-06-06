@@ -44,7 +44,7 @@ const ProjectMemberBlock = () => {
         badge_list={["팔로워", "옷장엔 체크셔츠뿐"]}
       />
       <MemberProfileRow
-        profile_id={12}
+        profile_id={2}
         name={"권예림"}
         tag_list={["멤버", "기획자", "주니어"]}
         badge_list={["스타트업 인재", "쉴틈없는 자기개발"]}
