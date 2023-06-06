@@ -73,7 +73,7 @@ export const ProjectCard = (props) => {
       
     return (
         <Container flexDirection={"row"} padding={"8px"} margin={"0 0 8px 0"}>
-            <CardImg />
+            <CardImg idx={project["id"]}/>
             <ContentBox>
                 <BadgeGroup>
                     {project["badge_list"].map((item,index)=>{
@@ -138,7 +138,8 @@ const Container = styled.div`
 const CardImg = styled.div`
     width: 90px;
     height: 90px;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/project/project${props => props.idx || 1}.png) no-repeat;
+    background-size: contain;
     border-radius: 10px;
 `
 
@@ -171,10 +172,14 @@ const Badge = styled.div`
 `
 
 const Title = styled.div`
+    width: 196px;
     height: 50%;
     font-size: 15px;
     font-weight: bold;
     padding: 4px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `
 
 const UserContainer = styled.div`
