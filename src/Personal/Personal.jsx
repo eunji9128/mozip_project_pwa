@@ -78,6 +78,10 @@ const Title = styled.div`
     margin-bottom: 16px;
     font-size: 25px;
     text-align: left;
+
+    p {
+        font-family: "SBaggroL";
+    }
 `
 
 const BadgeGroup = styled.div`
