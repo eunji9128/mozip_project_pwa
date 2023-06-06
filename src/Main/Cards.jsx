@@ -2,6 +2,13 @@ import styled from "styled-components";
 import { color } from "../style/colorVar";
 
 export const ProjectCard = () => {
+    function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
+    }
+      
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    shuffle(numbers);
+      
     return (
         <Container flexDirection={"row"} padding={"8px"} margin={"0 0 8px 0"}>
             <CardImg />
@@ -17,10 +24,10 @@ export const ProjectCard = () => {
                 </Title>
                 <UserContainer>
                     <UserGroup>
-                        <User />
-                        <User />
-                        <User />
-                        <User />
+                        <User idx={numbers[0]}/>
+                        <User idx={numbers[1]}/>
+                        <User idx={numbers[2]}/>
+                        <User idx={numbers[3]}/>
                     </UserGroup>
                     <UserContent>5/15 모집 완료</UserContent>
                 </UserContainer>
@@ -129,7 +136,8 @@ const User = styled.div`
     height: 25px;
     margin: -2px;
     border-radius: 50%;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/profile${props => props.idx || 1}.png) no-repeat;
+    background-size: contain;
     border: 1px solid ${color.gray500};
 `
 
