@@ -28,7 +28,7 @@ const Test1 = () => {
             }
             document.getElementById(colorData[step].pickId.toString()).style.backgroundColor = colorData[step].pickColor;
         }
-    },[step])
+    },[step, start])
 
     const handleTestClick = (e) => {
         e.preventDefault();
