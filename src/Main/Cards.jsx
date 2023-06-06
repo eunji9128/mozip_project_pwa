@@ -2,8 +2,16 @@ import styled from "styled-components";
 import { color } from "../style/colorVar";
 import { project_list } from "../constant/Projects";
 import { member_list } from "../constant/Members";
+import { useNavigate } from "react-router";
 
 export const ProjectCard = (props) => {
+    const navigate = useNavigate();
+    
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate(`/project/${props.index}`);
+    }
+
     let project = project_list[props.index ? props.index : 0]
 
     function shuffle(array) {
@@ -19,6 +27,7 @@ export const ProjectCard = (props) => {
             justifyContent={"space-around"}
             padding={"8px"} 
             margin={"0 0 8px 0"}
+            onClick={(e)=>{handleClick(e)}}
         >
             <CardImg idx={project.id}/>
             <ContentBox>
