@@ -5,10 +5,12 @@ import React from "react";
 import { useState } from "react";
 import { colorData } from "./colorData";
 import { useNavigate } from "react-router-dom";
+import TestBadge from "./Badges";
+import { badgeData } from "./badgeData";
 
 const Test5 = () => {
   const navigate = useNavigate();
-  let [end, setEnd] = useState(false);
+  let [finish, setFinish] = useState(false);
   let [start, setStart] = useState(false);
   let [bingoText, setBingoText] = useState(" ");
   let [progressVal, setProgressVal] = useState(0);
@@ -90,7 +92,7 @@ const Test5 = () => {
     }
 
     if (bingo_count >= 3) {
-      setEnd(true);
+      setFinish(true);
     }
   }, [grid]);
 
@@ -117,70 +119,69 @@ const Test5 = () => {
 
   return (
     <Container>
-      {end ? (
-        <>
-          <h1>Badge</h1>
-        </> // badge 획득 페이지
-      ) : (
-        <>
-          <Header>
-            <span
-              className="material-symbols-outlined"
-              onClick={(e) => {
-                handleNavigate(e);
-              }}
-            >
-              chevron_left
-            </span>
-            <HeaderContent>
-              <h3>디자이너 빙고 테스트</h3>
-              <p>나만 이런거 아니잖아..</p>
-            </HeaderContent>
-          </Header>
-          {!start ? (
-            <>
-              <BingoText>
-                <h3>{bingoText}</h3>
-              </BingoText>
-              <TestFrame
-                onClick={() => {
-                  setStart(true);
+      {
+        finish ?
+        <TestBadge badgeData={badgeData[7]} /> : 
+        (
+          <>
+            <Header>
+              <span
+                className="material-symbols-outlined"
+                onClick={(e) => {
+                  handleNavigate(e);
                 }}
               >
-                <TestLanding />
-              </TestFrame>
-            </>
-          ) : (
-            <>
-              <BingoText>
-                <h3>{bingoText}</h3>
-              </BingoText>
-              <TestFrame
-                onClick={() => {
-                  setStart(true);
-                }}
-              >
-                <BingoGrid row={5} column={5}>
-                  {grid.map((data, i) => {
-                    return (
-                      <div
-                        key={i}
-                        id={i}
-                        className="colorGrid"
-                        onClick={(e) => handleTestClick(e, i)}
-                        style={
-                          data[1] ? { backgroundColor: color.mainColor } : {}
-                        }
-                      >
-                        <p>{data[0]}</p>
-                      </div>
-                    );
-                  })}
-                </BingoGrid>
-              </TestFrame>
-            </>
-          )}
-        </>
+                chevron_left
+              </span>
+              <HeaderContent>
+                <h3>디자이너 빙고 테스트</h3>
+                <p>나만 이런거 아니잖아..</p>
+              </HeaderContent>
+            </Header>
+            {!start ? (
+              <>
+                <BingoText>
+                  <h3>{bingoText}</h3>
+                </BingoText>
+                <TestFrame
+                  onClick={() => {
+                    setStart(true);
+                  }}
+                >
+                  <TestLanding />
+                </TestFrame>
+              </>
+            ) : (
+              <>
+                <BingoText>
+                  <h3>{bingoText}</h3>
+                </BingoText>
+                <TestFrame
+                  onClick={() => {
+                    setStart(true);
+                  }}
+                >
+                  <BingoGrid row={5} column={5}>
+                    {grid.map((data, i) => {
+                      return (
+                        <div
+                          key={i}
+                          id={i}
+                          className="colorGrid"
+                          onClick={(e) => handleTestClick(e, i)}
+                          style={
+                            data[1] ? { backgroundColor: color.mainColor } : {}
+                          }
+                        >
+                          <p>{data[0]}</p>
+                        </div>
+                      );
+                    })}
+                  </BingoGrid>
+                </TestFrame>
+              </>
+            )}
+          </>
       )}
     </Container>
   );

@@ -2,14 +2,16 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { color } from "../style/colorVar";
 import { useState } from "react";
+import TestBadge from "./Badges";
+import { badgeData } from "./badgeData";
 
 const Test4 = () => {
     const navigate = useNavigate();
     let [start, setStart] = useState(false);
-    let [end, setEnd] = useState(false);
+    let [finish, setFinish] = useState(false);
     let [step, setStep] = useState(1);
     let [total, setTotal] = useState(0);
-    const result = [1, 2, 3];
+    const result = [4, 5, 6];
 
     const testData = [
         {},
@@ -24,11 +26,11 @@ const Test4 = () => {
         },
         {
             id: 2,
-            question: <span>동료 직원의 실수로 회사 팀 프로젝트가<br />무산되었다. 동료는 죄책감에 시달려 하루종일<br />우울해한다. 당신의 선택은?</span>,
+            question: <span>동료 직원의 실수로 회사 팀 프로젝트가<br />무산되었다. 동료는 죄책감에 시달려<br />하루종일 우울해한다. 당신의 선택은?</span>,
             buttons: 2,
             answer: [
                 <span>'이미 지나간 일이야. 다음부터 그럴땐..'<br />현실적인 조언을 해준다.</span>,
-                <span>'힘들지? 너무 깊게 생각하지 말고 오늘은 쉬어'<br />공감을 해주며 위로한다.</span>,
+                <span>'힘들지? 너무 깊게 생각하지 말고 오늘은<br />쉬어' 공감을 해주며 위로한다.</span>,
             ],
         },
         {
@@ -118,7 +120,7 @@ const Test4 = () => {
         console.log('total: ', total);
         if (step === testData.length - 1) {
             console.log('done');
-            setEnd(true);
+            setFinish(true);
             return
         }
         let copy = step;
@@ -135,7 +137,7 @@ const Test4 = () => {
         console.log('total: ', total);
         if (step === testData.length - 1) {
             console.log('done');
-            setEnd(true);
+            setFinish(true);
             return
         }
         let copy = step;
@@ -147,8 +149,8 @@ const Test4 = () => {
     return (
         <Container>
             {
-                end ?
-                <h1>{result[Math.abs(total)%3]}</h1> :
+                finish ?
+                <TestBadge badgeData={badgeData[result[Math.abs(total)%3]]} /> :
                 <>
                     <Header>
                         <span

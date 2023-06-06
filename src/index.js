@@ -68,12 +68,12 @@ const routes = [
     children: [
       {
         path: '',
-        element: <Personal />
+        element: <Personal />,
       },
       {
         path: ':id',
         element: <Tests />,
-      }
+      },
     ]
   },
   {

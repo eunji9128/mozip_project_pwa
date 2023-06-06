@@ -14,7 +14,7 @@ const Nav = () => {
                 className="material-symbols-outlined"
                 onClick={(e) => {handleNavigate(e)}}
             >
-                chevron_left
+                arrow_back_ios_new
             </span>
         </Container>
     )

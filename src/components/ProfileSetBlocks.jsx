@@ -101,12 +101,12 @@ const ProfileBlocks = styled.input`
 const StyledBtn = styled.button`
     width: 90%;
     height: 52px;
-    background-color: #d4d4d4;
+    background-color: ${color.mainColor};
     border: none;
     border-radius: 10px;
     position: absolute;
     left:0;
-    bottom: 0;
+    bottom: 20px;
     margin: 16px;
     font-size: 16px;
     font-weight: bold;
