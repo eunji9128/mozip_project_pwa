@@ -3,11 +3,14 @@ import styled from "styled-components";
 import { color } from "../style/colorVar";
 import { useState } from "react";
 import Gameover from "./Gameover";
+import TestBadge from "./Badges";
+import { badgeData } from "./badgeData";
 
 const Test2 = () => {
     const navigate = useNavigate();
     let [start, setStart] = useState(false);
     let [end, setEnd] = useState(false);
+    let [finish, setFinish] = useState(false);
     let [step, setStep] = useState(1);
 
     const examData = [
@@ -79,7 +82,7 @@ const Test2 = () => {
         console.log(e.target.dataset);
         if (parseInt(userAnswer) === examData[step].answer) {
             if (step === examData.length - 1) {
-                console.log('done');
+                setFinish(true);
                 return
             }
             let copy = step;
@@ -94,7 +97,10 @@ const Test2 = () => {
     return (
         <Container>
             {
-                end ?
+                finish ?
+                <TestBadge badgeData={badgeData[1]} /> :
+                (
+                    end ?
                     <Gameover score={step-1} id="2"/> :
                     <>
                         <Header>
@@ -136,6 +142,7 @@ const Test2 = () => {
                             </>
                         }
                     </>
+                )
             }
         </Container>
     )

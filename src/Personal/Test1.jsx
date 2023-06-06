@@ -6,11 +6,14 @@ import { useState } from "react";
 import { colorData } from "./colorData";
 import { useNavigate } from "react-router-dom";
 import Gameover from "./Gameover";
+import TestBadge from "./Badges";
+import { badgeData } from "./badgeData";
 
 const Test1 = () => {
     const navigate = useNavigate();
     let [step, setStep] = useState(0);
     let [end, setEnd] = useState(false);
+    let [finish, setFinish] = useState(false);
     let [start, setStart] = useState(false);
     let [progressVal, setProgressVal] = useState(0);
     
@@ -32,7 +35,7 @@ const Test1 = () => {
         e.stopPropagation();
         if (parseInt(e.target.id) === colorData[step].pickId) {
             if (step >= colorData.length-1) {
-                setEnd(true); // 뱃지획득 스텝으로 변경 예정
+                setFinish(true); // 뱃지획득 스텝으로 변경 예정
                 return
             }
             let copy = step;
@@ -59,47 +62,49 @@ const Test1 = () => {
     return (
         <Container>
             {
-                end || (progressVal == 60) ?
-                <>
-                    <Gameover score={step} id="1" />
-                </>
-                :
-                <>
-                    <Header>
-                        <span 
-                            className="material-symbols-outlined"
-                            onClick={(e) => {handleNavigate(e)}}
-                        >
-                            chevron_left
-                        </span>
-                        <HeaderContent>
-                            <h3>절대 색감 테스트</h3>
-                            <p>제한 시간 안에 색이 다른 하나의 사각형을 클릭해 주세요.</p>
-                        </HeaderContent>
-                    </Header>
-                    {
-                        !start ?
-                        <TestLanding onClick={()=>{setStart(true)}}/> :
+                finish ?
+                <TestBadge badgeData={badgeData[0]} /> : 
+                (
+                    end || (progressVal == 60) ? 
+                        <Gameover score={step} id="1" /> :
                         <>
-                            <ProgressBar>
-                                <progress max="60" value={progressVal}></progress>
-                                <p>{progressVal}</p>
-                            </ProgressBar>
-                            <TestContents>
-                                <div>
-                                    <p>단계 {step+1}/{colorData.length}</p>
-                                    <ColorGrid row={colorData[step].row} column={colorData[step].column} color={colorData[step].mainColor}>
-                                        {
-                                            grid.map((data, i) => {return <div key={i} id={i} className="colorGrid" onClick={(e) => handleTestClick(e)}/>})
-                                        }
-                                    </ColorGrid>
-                                </div>
-                            </TestContents>
+                            <Header>
+                                <span 
+                                    className="material-symbols-outlined"
+                                    onClick={(e) => {handleNavigate(e)}}
+                                >
+                                    chevron_left
+                                </span>
+                                <HeaderContent>
+                                    <h3>절대 색감 테스트</h3>
+                                    <p>제한 시간 안에 색이 다른 하나의 사각형을 클릭해 주세요.</p>
+                                </HeaderContent>
+                            </Header>
+                            {
+                                !start ?
+                                <TestLanding onClick={()=>{setStart(true)}}/> :
+                                <>
+                                    <ProgressBar>
+                                        <progress max="60" value={progressVal}></progress>
+                                        <p>{progressVal}</p>
+                                    </ProgressBar>
+                                    <TestContents>
+                                        <div>
+                                            <p>단계 {step+1}/{colorData.length}</p>
+                                            <ColorGrid row={colorData[step].row} column={colorData[step].column} color={colorData[step].mainColor}>
+                                                {
+                                                    grid.map((data, i) => {return <div key={i} id={i} className="colorGrid" onClick={(e) => handleTestClick(e)}/>})
+                                                }
+                                            </ColorGrid>
+                                        </div>
+                                    </TestContents>
+                                </>
+                            }
                         </>
-                    }
-                </>
+                )
             }
         </Container>
+
     )
 }
 
