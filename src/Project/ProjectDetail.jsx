@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import ProjectAbstractInfoBlock from "../components/project/ProjectAbstractInfoBlock";
 import ProjectInfoBlock from "../components/project/ProjectInfoBlock";
 import ProjectMemberBlock from "../components/project/ProjectMemberBlock";
+import ProjectBottomBar from "../components/project/ProjectBottomBar";
 
 export const ProjectDetail = () => {
   const params = useParams();
@@ -33,13 +34,14 @@ export const ProjectDetail = () => {
       <ProjectAbstractInfoBlock />
       <ProjectInfoBlock />
       <ProjectMemberBlock />
+      <ProjectBottomBar />
     </Container>
   );
 };
 
 const Container = styled.div`
   width: 100%;
-  padding-bottom: 32px;
+  padding-bottom: 108px;
 `;
 
 const Header = styled.div`
