@@ -4,11 +4,13 @@ import FavBlocks from "./FavBlocks";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ProfileSetBlocks from "./ProfileSetBlocks";
+import { color } from "../style/colorVar";
 
 export const SignupName = () => {
     let navigate = useNavigate();
     let [username, setUsername] = useState('');
     let [disabled, setDisabled] = useState(true);
+    let [start, setStart] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,6 +27,11 @@ export const SignupName = () => {
     }
 
     return (
+        !start ?
+        <StartWrap>
+            <Start /> 
+            <StyledBtn onClick={() => {setStart(true)}}>시작하기</StyledBtn>
+        </StartWrap> :
         <Container>
             <h1>당신의 이름은 무엇인가요?</h1>
             <Content>모집은 당신이 궁금해요!</Content>
@@ -88,9 +95,24 @@ const Container = styled.div`
     text-align: left;
 `
 
+const StartWrap = styled.div`
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const Start = styled.div`
+    width: 267px;
+    height: 180px;
+    background: url(${process.env.PUBLIC_URL}/img/signup_start.svg);
+`
+
 const Content = styled.p`
     color: #a3a3a3;
     margin-top: 12px;
+    font-size: 14px;
 `
 
 const StyledInput = styled.input`
@@ -106,12 +128,12 @@ const StyledInput = styled.input`
 const StyledBtn = styled.button`
     width: 90%;
     height: 52px;
-    background-color: #d4d4d4;
+    background-color: ${color.mainColor};
     border: none;
     border-radius: 10px;
     position: absolute;
     left:0;
-    bottom: 0;
+    bottom: 20px;
     margin: 16px;
     font-size: 16px;
     font-weight: bold;
