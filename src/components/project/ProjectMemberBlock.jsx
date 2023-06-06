@@ -27,29 +27,29 @@ const MemberProfileRow = ({ profile_id, name, tag_list, badge_list }) => {
   );
 };
 
-const ProjectMemberBlock = () => {
+const ProjectMemberBlock = ({ project, member_list }) => {
   return (
     <Container>
       <h2>| 멤버 소개</h2>
-      <MemberProfileRow
-        profile_id={1}
-        name={"허성원"}
-        tag_list={["모집장", "디자이너", "시니어"]}
-        badge_list={["리더", "투머치 토커 훈장님", "색감 궁예"]}
-      />
-      <MemberProfileRow
-        profile_id={12}
-        name={"최우빈"}
-        tag_list={["멤버", "개발자", "주니어"]}
-        badge_list={["팔로워", "옷장엔 체크셔츠뿐"]}
-      />
-      <MemberProfileRow
-        profile_id={2}
-        name={"권예림"}
-        tag_list={["멤버", "기획자", "주니어"]}
-        badge_list={["스타트업 인재", "쉴틈없는 자기개발"]}
-      />
-      <MemberProfileRow />
+      {member_list.map((member, index) => {
+        return (
+          <MemberProfileRow
+            profile_id={member.profile_id}
+            name={member.name}
+            tag_list={
+              index === 0
+                ? ["모집장", member.role, member.career]
+                : ["멤버", member.role, member.career]
+            }
+            badge_list={member.badge_list}
+          />
+        );
+      })}
+      {Array.apply(null, {
+        length: project.max_personnel - project.current_personnel,
+      }).map((item, index) => {
+        return <MemberProfileRow />;
+      })}
     </Container>
   );
 };

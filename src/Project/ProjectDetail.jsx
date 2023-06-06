@@ -7,9 +7,13 @@ import ProjectAbstractInfoBlock from "../components/project/ProjectAbstractInfoB
 import ProjectInfoBlock from "../components/project/ProjectInfoBlock";
 import ProjectMemberBlock from "../components/project/ProjectMemberBlock";
 import ProjectBottomBar from "../components/project/ProjectBottomBar";
+import { project_list } from "../constant/Projects";
+import { get_random_members } from "../constant/Members";
 
 export const ProjectDetail = () => {
   const params = useParams();
+  let project = project_list[params.id];
+  let member_list = get_random_members(project.current_personnel);
 
   const navigate = useNavigate();
 
@@ -20,7 +24,7 @@ export const ProjectDetail = () => {
 
   return (
     <Container>
-      <Header>
+      <Header project_id={project.id}>
         <span
           className="material-symbols-outlined"
           onClick={(e) => {
@@ -31,9 +35,9 @@ export const ProjectDetail = () => {
         </span>
         <div className="material-symbols-outlined">share</div>
       </Header>
-      <ProjectAbstractInfoBlock />
-      <ProjectInfoBlock />
-      <ProjectMemberBlock />
+      <ProjectAbstractInfoBlock project={project} leader={member_list[0]} />
+      <ProjectInfoBlock project={project} />
+      <ProjectMemberBlock project={project} member_list={member_list} />
       <ProjectBottomBar />
     </Container>
   );
@@ -60,8 +64,9 @@ const Header = styled.div`
     font-size: 24px;
   }
 
-  background: url(${process.env.PUBLIC_URL}/img/project/main/project1_main.png)
+  background: url(${process.env.PUBLIC_URL}/img/project/main/project${(props) =>
+      props.project_id || "1"}_main.jpg)
     no-repeat;
-  background-position: center center;
+  background-position: center 65%;
   background-size: cover;
 `;

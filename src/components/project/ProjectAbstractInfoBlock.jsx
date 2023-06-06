@@ -1,23 +1,27 @@
 import styled from "styled-components";
 import { color } from "../../style/colorVar";
 
-const ProjectAbstractInfoBlock = () => {
+const ProjectAbstractInfoBlock = ({ project, leader }) => {
   return (
     <Container>
-      <LeaderProfileBlock />
-      <p>허성원</p>
-      <h2>{"⛰️[여행플랫폼] 내 손 안의 여행북 ⛰️\n같이 떠나보아요!❇️"}</h2>
+      <LeaderProfileBlock profile_id={leader.profile_id} />
+      <p>{leader.name}</p>
+      <TitleWrapper>
+        <h2>{project.title}</h2>
+      </TitleWrapper>
       <InfoWrapperBlock>
         <InfoBlock ratio={1}>
-          <h3>여행</h3>
+          <h3>{project.topic}</h3>
           <span>주제</span>
         </InfoBlock>
         <InfoBlock ratio={2}>
-          <h3>블렌디드 / 주 1회</h3>
+          <h3>
+            {project.meeting_type} / {project.meeting_cadence}
+          </h3>
           <span>모임방식</span>
         </InfoBlock>
         <InfoBlock ratio={1}>
-          <h3>서울</h3>
+          <h3>{project.region}</h3>
           <span>장소</span>
         </InfoBlock>
       </InfoWrapperBlock>
@@ -54,6 +58,7 @@ const Container = styled.div`
     white-space: pre-line;
     text-align: center;
     margin: 20px 0;
+    word-break: keep-all;
   }
 
   h3 {
@@ -68,6 +73,12 @@ const Container = styled.div`
   }
 `;
 
+const TitleWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+`;
+
 const LeaderProfileBlock = styled.div`
   width: 48px;
   height: 48px;
@@ -76,7 +87,8 @@ const LeaderProfileBlock = styled.div`
   top: -24px;
   left: calc(50% - 24px);
 
-  background: url(${process.env.PUBLIC_URL}/img/profile/profile1.png);
+  background: url(${process.env.PUBLIC_URL}/img/profile/profile${(props) =>
+    props.profile_id || "1"}.png);
   background-size: contain;
   border-radius: 60px;
   border: 1px solid ${color.mainColor};

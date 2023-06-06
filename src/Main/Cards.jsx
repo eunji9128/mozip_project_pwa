@@ -70,7 +70,7 @@ export const MemberCard = (props) => {
                 <ChatBtn>채팅</ChatBtn>
             </Header>
             <BadgeGroup height={"auto"} fontSize={"14px"} padding={"16px 8px 0 8px"}>
-                {member.badge_list.map((item, index)=>{
+                {member.topic_list.map((item, index)=>{
                     return <Badge>{item}</Badge>
                 })}
             </BadgeGroup>

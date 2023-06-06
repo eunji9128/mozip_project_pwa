@@ -20,7 +20,7 @@ const ProjectInfoDetailRow = ({ icon, name, value }) => {
   );
 };
 
-const ProjectInfoBlock = () => {
+const ProjectInfoBlock = ({ project }) => {
   return (
     <Container>
       <InfoBlock>
@@ -33,7 +33,10 @@ const ProjectInfoBlock = () => {
         <ProjectInfoDetailRow
           icon={"diversity_3"}
           name={"모집인원"}
-          value={"1명"}
+          value={
+            (project.max_personnel - project.current_personnel).toString() +
+            "명"
+          }
         />
         <ProjectInfoDetailRow
           icon={"radar"}
