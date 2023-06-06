@@ -41,3 +41,14 @@
   font-family: "yapari";
   src: url("./fonts/yapari.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "SBaggroB";
+  src: url("./fonts/SBaggro_B.ttf") format("truetype");
+
+  font-family: "SBaggroM";
+  src: url("./fonts/SBaggro_M.ttf") format("truetype");
+
+  font-family: "SBaggroL";
+  src: url("./fonts/SBaggro_L.ttf") format("truetype");
+}
