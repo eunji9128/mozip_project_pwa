@@ -9,10 +9,22 @@ export const project_list = [
     meeting_type: "블렌디드",
     meeting_cadence: "주 2회",
     region: "서울",
+    schedule: "2023.04.25 - 2023.08.27",
+    join_position: "디자이너",
+    join_career: "신입 주니어",
+    join_skill: "Figma / Adobe XD",
+    catchphrase: '"내 손 안의 여행북"\n여행기를 차곡차곡 기록하는 서비스',
+    instroduction:
+      "바쁜 일상 속 틈틈이 여행을 다녀오는 당신이 잊어버리기 쉬운 그날의 추억을 담아보세요.",
+    service_range: " · web 모바일웹\n · app 안드로이드\n · app ios",
+    process:
+      "매주 일요일 오후 9시 서울 정기회의 (블랜디드)\n매주 요구하는 프로젝트 참여시간 4-10시간\n커뮤니케이션 툴 : 슬랙, 디스코드",
+    suggestion:
+      "1.이직/취업을 준비하는 주니어\n2.다양한 직업군과 소통하며 즐겁게 만들고 싶으신 분\n3.유저와 소통하는 경험을 얻고 싶으신 분",
   },
   {
     id: 2,
-    title: "[영화] 영화인을 위한 커뮤니티",
+    title: "[영화]\n영화인을 위한 커뮤니티",
     badge_list: ["영화", "주 3회", "서울", "오프라인"],
     current_personnel: 5,
     max_personnel: 5,
@@ -20,10 +32,22 @@ export const project_list = [
     meeting_type: "오프라인",
     meeting_cadence: "주 3회",
     region: "서울",
+    schedule: "2023.04.25 - 2023.08.27",
+    join_position: "개발자",
+    join_career: "신입 주니어",
+    join_skill: "React / Java",
+    catchphrase:
+      "“영화를 사랑하는 사람들이 함께 모여 정보를 공유하고 소통할 수 있는 온라인 플랫폼”",
+    instroduction:
+      "영화인들을 위한 특별한 커뮤니티 개발 프로젝트\n영화에 열정을 가지고 있는 분들과 함께 혁신적인 서비스를 구현하고자 합니다.",
+    service_range: " · app ios\n · app 안드로이드",
+    process: "주 3회 정기회의 (오프라인)\n커뮤니케이션 툴 : 카카오톡, 디스코드",
+    suggestion:
+      "1.영화를 사랑하고 열정이 넘치시는 분\n2.앱에 대한 관심은 많지만 앱 개발 경험이 없는 분\n3.책임감이 넘치시는 분",
   },
   {
     id: 3,
-    title: "[메타버스] 🔮메타커머스에선 모든게 다 가능해!",
+    title: "[메타버스] 🔮\n메타커머스에선 모든게 다 가능해!",
     badge_list: ["메타버스", "직장인", "온라인"],
     current_personnel: 4,
     max_personnel: 5,
@@ -31,10 +55,23 @@ export const project_list = [
     meeting_type: "블렌디드",
     meeting_cadence: "주 2회",
     region: "서울",
+    schedule: "2023.05.16 - 2023.09.11",
+    join_position: "기획자",
+    join_career: "신입 주니어",
+    join_skill: "Figma / Zeplin",
+    catchphrase:
+      "이 프로젝트는 가상현실(VR) 기술을 활용하여 현실과 가상이 융합된 공간에서 다양한 경험과 상호작용을 제공하는 독특한 플랫폼입니다.",
+    instroduction:
+      "플랫폼을 활용하여 메타커머스 서비스를 구현하여 가상 공간에서의 상품 판매 및 구매, 광고, 상호작용 등을 가능하게 할 계획입니다.",
+    service_range: " · web 모바일웹\n · app ios\n · app 안드로이드",
+    process:
+      "온라인으로 진행하며 매주 정기적으로 주제별 모임을 개최합니다.\n화상 회의를 통해 프로젝트 진행 상황을 공유하고 의사 결정을 진행합니다.\n커뮤니케이션 툴 : 카카오톡, zoom, slack",
+    suggestion:
+      "1.메타버스에 대한 이해와 관심을 가진 기획자 분\n2.원격 협업에 적응력이 있고, 팀원들과의 소통과 협업을 잘 이끌어 나갈 수 있는 분\n3.혁신적인 아이디어를 제안하고 실현시킬 수 있는 열정과 창의력을 가진 분들",
   },
   {
     id: 4,
-    title: "🐶[반려동물]🐶 반려동물 생애주기 맞춤형 관리 플랫폼",
+    title: "🐶[반려동물]🐶\n반려동물 생애주기 맞춤형 관리 플랫폼",
     badge_list: ["반려동물", "주 1회", "온라인"],
     current_personnel: 2,
     max_personnel: 3,
@@ -42,10 +79,23 @@ export const project_list = [
     meeting_type: "온라인",
     meeting_cadence: "주 1회",
     region: "서울",
+    schedule: "2023.05.10 - 2023.09.13",
+    join_position: "디자이너",
+    join_career: "신입 주니어",
+    join_skill: "Adobe Photoshop / Figma",
+    catchphrase:
+      "이번 프로젝트는 반려동물의 생애주기에 맞춰 다양한 정보와 서비스를 제공하는 플랫폼을 개발하는 것을 목표로 합니다.",
+    instroduction:
+      "반려동물을 키우는 사람들을 위해 충실한 정보와 유용한 기능을 제공하여 반려동물의 건강 관리, 훈련, 돌봄 등을 지원하고자 합니다.",
+    service_range: "· app ios\n · app 안드로이드",
+    process:
+      "주 1회 정기회의 (온라인)\n커뮤니케이션 툴 : 카카오톡, 디스코드 , 줌",
+    suggestion:
+      "1.반려동물에 대한 애정과 이해가 있는 디자이너 분들\n2.사용자 경험을 중시하며 직관적이고 친숙한 디자인을 구현할 수 있는 분\n3.반려동물의 생애주기와 관련된 디자인 경험이 있는 분들",
   },
   {
     id: 5,
-    title: "[시니어] 노인의 품격 : 요양원의 어르신들을 위한 어플",
+    title: "[시니어] 노인의 품격:\n요양원의 어르신들을 위한 어플",
     badge_list: ["시니어", "주 2회", "인천", "블렌디드"],
     current_personnel: 1,
     max_personnel: 4,
@@ -53,10 +103,21 @@ export const project_list = [
     meeting_type: "블렌디드",
     meeting_cadence: "주 2회",
     region: "인천",
+    schedule: "2023.04.26 - 2023.06.14",
+    join_position: "개발자 : 2명\n디자이너 : 1명",
+    join_career: "개발자 : 신입 주니어\n디자이너 : 신입 주니어",
+    join_skill: "개발자 : React / Java\n디자이너 : Figma / Adobe XD",
+    catchphrase: "“요양원에 계신 어르신들을 위한 품격 있는 생활”",
+    instroduction:
+      "어르신들의 편의를 위한 다양한 기능과 서비스를 제공하여 요양원 생활을 보다 풍요롭고 즐거운 경험으로 만들어드리고자 합니다.",
+    service_range: " · web 모바일웹\n · app ios\n · app 안드로이드",
+    process: "주 2회 정기회의 (블렌디드)\n커뮤니케이션 툴 : 카카오톡, 줌, 슬랙",
+    suggestion:
+      "1.노인의 삶과 행복을 위한 관심과 이해를 가진 분\n2.사회 공헌을 위해 기술과 디자인을 활용하고자 하는 분\n3.사용자 경험을 중시하며 노인들의 편의성과 품격을 고려한 디자인을 구현할 수 있는 분",
   },
   {
     id: 6,
-    title: "[방탈출] 세상 모든 방탈출 다 여기서 예약하세요",
+    title: "[방탈출] 세상 모든 방탈출\n다 여기서 예약하세요",
     badge_list: ["방탈출", "주 3회", "부산", "오프라인"],
     current_personnel: 1,
     max_personnel: 5,
@@ -64,10 +125,21 @@ export const project_list = [
     meeting_type: "오프라인",
     meeting_cadence: "주 3회",
     region: "부산",
+    schedule: "2023.06.07 - 2023.10.26",
+    join_position: "개발자 : 2명\n디자이너 : 2명",
+    join_career: "개발자 : 신입 주니어\n디자이너 : 신입 주니어",
+    join_skill: "개발자 : React / Java\n디자이너 : Figma / Adobe XD",
+    catchphrase: "“세상 모든 방탈출 게임을 한 플랫폼에서”",
+    instroduction:
+      "방탈출 게임을 좋아하는 사람들에게 다양한 테마와 난이도의 방탈출 게임을 제공하여 즐거운 경험을 선사하고자 합니다.",
+    service_range: " · app ios\n · app 안드로이드",
+    process: "주 3회 정기회의 (오프라인)\n커뮤니케이션 툴 : 카카오톡, 디스코드",
+    suggestion:
+      "1.방탈출 게임에 대한 관심과 열정을 가진 분\n2.게임 개발 경험이 있거나 관심이 있는 분\n3.책용자 경험을 중시하며 흥미로운 디자인을 구현할 수 있는 분",
   },
   {
     id: 7,
-    title: "[캠핑] 캠핑의 시작🎵🎶",
+    title: "[캠핑]\n캠핑의 시작🎵🎶",
     badge_list: ["캠핑", "주 1회", "서울", "블렌디드"],
     current_personnel: 2,
     max_personnel: 4,
@@ -75,10 +147,22 @@ export const project_list = [
     meeting_type: "블렌디드",
     meeting_cadence: "주 1회",
     region: "서울",
+    schedule: "2023.06.17 - 2023.09.29",
+    join_position: "개발자 : 1명\n디자이너 : 1명",
+    join_career: "개발자 : 신입 주니어\n디자이너 : 신입 주니어",
+    join_skill: "개발자 : React / Java\n디자이너 : Figma",
+    catchphrase: "“캠핑을 좋아하는 사람들을 위한 플랫폼.”",
+    instroduction:
+      "캠핑 여행의 시작부터 끝까지 필요한 정보와 서비스를 제공하여 사용자들이 편리하게 캠핑을 즐길 수 있는 플랫폼을 구현하고자 합니다.",
+    service_range: " · app ios\n · app 안드로이드",
+    process:
+      "주 1회 정기회의 (블렌디드)\n커뮤니케이션 툴 : 카카오톡, 구글미트, 줌",
+    suggestion:
+      "1.캠핑을 좋아하고 관련된 서비스를 개발하고 기획하고자 하는 분\n2.사용자의 편의성과 캠핑 경험을 중시하는 디자인을 구현할 수 있는 분\n3.협업에 적응력이 있고, 팀원들과의 소통과 협업을 잘 이끌어 나갈 수 있는 분",
   },
   {
     id: 8,
-    title: "[맛집투어] 음식을 사랑하는 자 여기 모여라",
+    title: "[맛집투어]\n음식을 사랑하는 자 여기 모여라",
     badge_list: ["맛집", "주 3회", "서울", "오프라인"],
     current_personnel: 1,
     max_personnel: 5,
@@ -86,10 +170,22 @@ export const project_list = [
     meeting_type: "오프라인",
     meeting_cadence: "주 3회",
     region: "서울",
+    schedule: "2023.07.02 - 2023.09.11",
+    join_position: "개발자 : 2명\n디자이너 : 2명",
+    join_career: "개발자 : 신입 주니어\n디자이너 : 신입 주니어",
+    join_skill: "개발자 : React / Java\n디자이너 : Figma",
+    catchphrase: "“음식을 사랑하고 맛집을 찾는 사람들을 위한 플랫폼”",
+    instroduction:
+      "다양한 음식 종류와 맛집 정보를 제공하고, 사용자들끼리 음식 투어를 기획하고 참여할 수 있는 플랫폼을 구현하고자 합니다.",
+    service_range: " · app ios\n · app 안드로이드",
+    process:
+      "주 3회 정기회의 (오프라인)\n커뮤니케이션 툴 : 카카오톡, 디스코드, 줌",
+    suggestion:
+      "1.음식을 사랑하고 다양한 맛집을 탐방하고자 하는 분\n2.사용자의 편의성과 사용자 경험을 중시하는 디자인을 구현할 수 있는 분\n3.원격 협업에 적응력이 있고, 팀원들과의 소통과 협업을 잘 이끌어 나갈 수 있는 분",
   },
   {
     id: 9,
-    title: "🌤️[날씨]☀️ 오늘 날씨에 맞는 코디 추천 플랫폼",
+    title: "🌤️[날씨]☀️\n오늘 날씨에 맞는 코디 추천 플랫폼",
     badge_list: ["날씨", "주 2회", "서울", "오프라인"],
     current_personnel: 5,
     max_personnel: 5,
@@ -97,10 +193,22 @@ export const project_list = [
     meeting_type: "오프라인",
     meeting_cadence: "주 2회",
     region: "서울",
+    schedule: "2023.03.15 - 2023.07.15",
+    join_position: "개발자",
+    join_career: "신입 주니어",
+    join_skill: "React / Java",
+    catchphrase:
+      "“사용자들에게 오늘의 날씨에 맞춘 적절한 코디를 추천하는 플랫폼”",
+    instroduction:
+      "사용자의 위치와 날씨 정보를 기반으로 스타일링 팁, 의상 조합 아이디어, 쇼핑 링크 등을 제공하여 사용자들이 날씨에 맞게 멋진 코디를 할 수 있도록 도와주는 플랫폼을 구현하고자 합니다.",
+    service_range: " · app ios\n · app 안드로이드",
+    process: "주 2회 정기회의 (오프라인)\n커뮤니케이션 툴 : 카카오톡, 디스코드",
+    suggestion:
+      "1.영화를 사랑하고 열정이 넘치시는 분\n2.앱에 대한 관심은 많지만 앱 개발 경험이 없는 분\n3.책임감이 넘치시는 분",
   },
   {
     id: 10,
-    title: "[유아] 유아용품 전문 중고거래 앱 개발 플랫폼",
+    title: "[유아]\n유아용품 전문 중고거래 앱 개발 플랫폼",
     badge_list: ["육아", "주 2회", "서울", "블렌디드"],
     current_personnel: 5,
     max_personnel: 5,
@@ -108,10 +216,21 @@ export const project_list = [
     meeting_type: "블렌디드",
     meeting_cadence: "주 2회",
     region: "서울",
+    schedule: "2023.04.28 - 2023.06.11",
+    join_position: "개발자",
+    join_career: "신입 주니어",
+    join_skill: "React / Java",
+    catchphrase: "“유아용품에 특화된 중고거래 앱 플랫폼”",
+    instroduction:
+      "사용자들에게 안전하고 신뢰할 수 있는 유아용품 거래 플랫폼을 제공하여 경제적인 측면에서 가족들을 지원하고자 합니다. 중고 유아용품을 구매하고 판매할 수 있는 기능과 함께 안전한 거래 환경을 제공하는 것을 목표로 합니다",
+    service_range: " · app ios\n · app 안드로이드",
+    process: "주 2회 정기회의 (블렌디드)\n커뮤니케이션 툴 : 카카오톡, 디스코드",
+    suggestion:
+      "1.유아용품 거래에 관심이 있으며, 안전하고 효율적인 거래 플랫폼을 구현하고자 하는 분\n2.사용자 경험과 디자인에 관심이 있고, 사용자들의 편의성을 고려한 서비스를 개발하고자 하는 분\n3.원격 협업에 적응력이 있고, 팀원들과의 소통과 협업을 잘 이끌어 나갈 수 있는 분",
   },
   {
     id: 11,
-    title: "[미술품] 🎨미술 작품 거래 차트 서비스 플랫폼",
+    title: "[미술품]\n🎨미술 작품 거래 차트 서비스 플랫폼",
     badge_list: ["미술품", "주 3회", "온라인"],
     current_personnel: 4,
     max_personnel: 5,
@@ -119,10 +238,21 @@ export const project_list = [
     meeting_type: "온라인",
     meeting_cadence: "주 3회",
     region: "서울",
+    schedule: "2023.06.01 - 2023.10.23",
+    join_position: "개발자",
+    join_career: "신입 주니어",
+    join_skill: "React / Java",
+    catchphrase: "“미술 작품 거래 차트 서비스 플랫폼”",
+    instroduction:
+      "미술 작품 거래에 관심 있는 사용자들에게 실시간으로 작품 가격과 시장 동향을 제공하여 미술 작품 거래에 도움을 주고자 합니다. 작품의 가치 평가, 투자 정보, 예술 시장의 동향 등 다양한 정보를 제공하여 사용자들이 미술 작품 거래에 대한 결정을 내릴 수 있도록 지원합니다.",
+    service_range: " · app ios\n · app 안드로이드",
+    process: "주 3회 정기회의 (온라인)\n커뮤니케이션 툴 : 카카오톡, 디스코드",
+    suggestion:
+      "1.미술 작품 거래에 관심이 있으신 분\n2.사용자 경험을 고려한 서비스 개발에 관심이 있는 개발자 및 기획자 분\n3.미술 시장에 대한 지식과 경험이 있는 분",
   },
   {
     id: 12,
-    title: "[전시회] 디자이너의 디자이너를 위한 디자이너에 의한 전시회",
+    title: "[전시회] 디자이너의 디자이너를\n위한 디자이너에 의한 전시회",
     badge_list: ["전시회", "주 1회", "서울", "오프라인"],
     current_personnel: 5,
     max_personnel: 5,
@@ -130,5 +260,17 @@ export const project_list = [
     meeting_type: "오프라인",
     meeting_cadence: "주 1회",
     region: "서울",
+    schedule: "2023.06.11 - 2023.07.02",
+    join_position: "디자이너",
+    join_career: "신입 주니어",
+    join_skill: "Adobe Photoshop",
+    catchphrase: "“디자이너의 디자이너를 위한 디자이너에 의한 전시회”",
+    instroduction:
+      "디자인에 열정을 가지고 있는 디자이너들이 모여 자유로운 창작 환경에서 서로의 작품을 공유하고 성장할 수 있는 전시회를 개최하고자 합니다.",
+    service_range: " · 전시회 전반 기획\n · 전시회 설치",
+    process:
+      "주 1회 정기회의 (오프라인)\n커뮤니케이션 툴 : 카카오톡, 디스코드, 줌",
+    suggestion:
+      "1.디자인에 열정과 재능을 가지고 있는 분\n2.창작 공간에서 자유롭게 작품을 공유하고 소통하고자 하는 분\n3.전문적인 전시회 기획과 조직에 관심이 있는 분",
   },
 ];
