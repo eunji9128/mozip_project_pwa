@@ -28,7 +28,7 @@ const Recommend = () => {
             </div>
             <Hr />
             <Container padding={"16px 0"}>
-                <h1>허성원님을 위한 추천 프로젝트</h1>
+                <h1>허성원님을 위한 추천 프로젝트❗️</h1>
                 {
                     cards.map((data, i) => {
                         return <ProjectCard index={i}/>
