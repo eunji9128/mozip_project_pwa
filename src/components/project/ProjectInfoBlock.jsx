@@ -106,7 +106,6 @@ const InfoBlock = styled.div`
 const ProjectInfoDetailRowContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
   margin-top: 12px;
 
   div {
