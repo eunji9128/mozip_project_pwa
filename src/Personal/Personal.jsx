@@ -71,6 +71,7 @@ const Header = styled.div`
     width: 100%;
     height: 40px;
     font-size: 18px;
+    font-weight: bold;
 `
 
 const Title = styled.div`
@@ -94,11 +95,12 @@ const BadgeGroup = styled.div`
 `
 
 const Badge = styled.div`
-    padding: 4px 10px;
-    margin: 0 4px 4px 0;
-    background: ${color.gray700};
-    border-radius: 15px;
-    color: ${color.gray50};
+    padding: 4px 8px;
+    margin: 0 4px 16px 0;
+    border: 1px solid ${color.mainColor};
+    border-radius: 10px;
+    color: ${color.mainColor};
+    font-size: 14px;
     text-align: center;
 `
 
