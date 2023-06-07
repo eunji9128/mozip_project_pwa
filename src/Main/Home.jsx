@@ -8,14 +8,14 @@ const Home = () => {
             <HomeBanner />
             <StyledBtn>내 프로필 설정하기</StyledBtn>
             <Container padding="0" margin={"40px 0 0 0"}>
-                <h1>인기 프로젝트</h1>
+                <h1>인기 프로젝트🔥</h1>
                 <ProjectCard index={0}/>
                 <ProjectCard index={1}/>
                 <ProjectCard index={2}/>
                 {/* 데이터 바인딩으로 변환해줘야 함 */}
             </Container>
             <Container padding="0" margin={"40px 0 0 0"}>
-                <h1>새로운 프로젝트</h1>
+                <h1>새로운 프로젝트🆕</h1>
                 <ProjectCard index={3}/>
                 <ProjectCard index={4}/>
                 <ProjectCard index={5}/>
