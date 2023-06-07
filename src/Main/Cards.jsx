@@ -34,7 +34,7 @@ export const ProjectCard = (props) => {
                 <div>
                     <BadgeGroup>
                         {project.badge_list.map((item, index)=>{
-                            return <Badge>{item}</Badge>
+                            return <Badge key={index}>{item}</Badge>
                         })}
                     </BadgeGroup>
                     <Title>
@@ -44,7 +44,7 @@ export const ProjectCard = (props) => {
                 <UserContainer>
                     <UserGroup>
                         {Array.apply(null, {length: project.current_personnel}).map((item, index)=>{
-                            return <User idx={numbers[index]} />
+                            return <User key={index} idx={numbers[index]} />
                         })}
                     </UserGroup>
                     <UserContent>

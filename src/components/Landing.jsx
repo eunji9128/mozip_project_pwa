@@ -26,10 +26,9 @@ const Contain = styled.div`
 `
 
 const LandingImg = styled.div`
-    width: 280px;
-    height: 588px;
+    width: 360px;
+    height: 696px;
     background: url(${process.env.PUBLIC_URL}/img/landing1.svg);
-    margin-top: 64px;
 `
 
 const StyledBtn = styled.button`

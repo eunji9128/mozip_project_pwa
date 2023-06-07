@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyle } from './style/styled';
-import { Favorites, ProfileSet, SignupBirth, SignupName } from './components/Signup';
+import { Favorites, ProfileSet, SignupBirth, SignupName, Job, Seniority } from './components/Signup';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './components/Landing';
 import Main from './Main/Main';
@@ -19,6 +19,9 @@ import { ProjectDetail } from './Project/ProjectDetail';
 import ProjectHome from './Project/ProjectHome';
 import ChatHome from './Chat/ChatHome';
 import { ChatList } from './Chat/ChatList';
+import MyPageHome from './MyPage/MyPageHome';
+import MyPage from './MyPage/MyPage';
+
 
 const basename = process.env.PUBLIC_URL;
 const routes = [
@@ -33,6 +36,14 @@ const routes = [
       {
         path: 'birth',
         element: <SignupBirth />,
+      },
+      {
+        path: 'job',
+        element: <Job />,
+      },
+      {
+        path: 'seniority',
+        element: <Seniority />,
       },
       {
         path: 'favorites',
@@ -92,7 +103,13 @@ const routes = [
   },
   {
     path: '/mypage',
-    element: <h1>my page</h1>,
+    element: <MyPageHome />,
+    children: [
+      {
+        path: '',
+        element: <MyPage />,
+      }
+    ]
   },
   {
     path: '/project',

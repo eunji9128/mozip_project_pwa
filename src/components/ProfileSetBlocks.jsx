@@ -33,7 +33,7 @@ const ProfileSetBlocks = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // 서버 포스트 or 스토리지 저장 코드 입력
+        sessionStorage.setItem("profile-id", selectedImg);
         navigate('/landing');
     }
 
