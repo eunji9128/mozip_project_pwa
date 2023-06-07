@@ -19,6 +19,9 @@ import { ProjectDetail } from './Project/ProjectDetail';
 import ProjectHome from './Project/ProjectHome';
 import ChatHome from './Chat/ChatHome';
 import { ChatList } from './Chat/ChatList';
+import MyPageHome from './MyPage/MyPageHome';
+import MyPage from './MyPage/MyPage';
+
 
 const basename = process.env.PUBLIC_URL;
 const routes = [
@@ -100,7 +103,13 @@ const routes = [
   },
   {
     path: '/mypage',
-    element: <h1>my page</h1>,
+    element: <MyPageHome />,
+    children: [
+      {
+        path: '',
+        element: <MyPage />,
+      }
+    ]
   },
   {
     path: '/project',
