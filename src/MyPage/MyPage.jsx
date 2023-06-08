@@ -3,7 +3,7 @@ import { color } from "../style/colorVar";
 import "./mypage_style.css";
 import { useState } from "react";
 import { ProjectCard } from "../Main/Cards";
-import portfolio from './portfolio.svg';
+import portfolio from './portfolio.png';
 
 const MyPage = () => {
     const username = sessionStorage.getItem('username');
@@ -42,7 +42,7 @@ const MyPage = () => {
                 <span className="material-symbols-outlined">
                     settings
                 </span>
-                <p>👋{username}님, 반가워요!</p>
+                <p>👋 {username}님, 반가워요!</p>
                 <Wrap>
                     <img src={profile} />
                 </Wrap>
@@ -141,6 +141,8 @@ const Tab = styled.div`
     text-align: center;
     font-size: 15px;
     padding: 8px 0;
+    color: ${(props) => (props.className === "selected" ? color.gray50 : color.gray500)};
+    font-weight: ${(props) => (props.className === "selected" ? "bold" : "regular")};
 `
 
 const CardGroup = styled.div`
