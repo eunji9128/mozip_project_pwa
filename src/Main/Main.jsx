@@ -6,13 +6,24 @@ import Navbar from "./Navbar.jsx";
 import axios from "axios";
 
 const Main = () => {
-    let [tabs, setTabs] = useState([true, false, false]);
-    // 현재 컴포넌트에 따라 tab focus pseudo class style 적용하는 코드 입력
-    // useMatch 사용 가능?
     const navigate = useNavigate();
+    let [active1, setActive1] = useState([color.gray50, 'underline']);
+    let [active2, setActive2] = useState(['', '']);
 
-    const handleNavigate = (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
+        e.stopPropagation();
+
+        switch (e.target.id) {
+            case "recommend":
+                setActive1(['', '']);
+                setActive2([color.gray50, 'underline']);
+                break;
+            default:
+                setActive1([color.gray50, 'underline']);
+                setActive2(['', '']);
+                break;
+        }
         navigate(`/home/${e.target.id}`);
     }
 
@@ -37,15 +48,15 @@ const Main = () => {
     //         console.error(err);
     //     }
     // );
+    
 
     return (
         <Container>
             <Header>
                 <SmallLogo />
                 <TabGroup>
-                    <TabBtn id="" onClick={(e) => handleNavigate(e)}>홈</TabBtn>
-                    <TabBtn id="recommend" onClick={(e) => handleNavigate(e)}>추천</TabBtn>
-                    <TabBtn id="completed" onClick={(e) => handleNavigate(e)}>완료된 프로젝트</TabBtn>
+                    <TabBtn id="" color={active1[0]} textDecoration={active1[1]} onClick={(e) => handleClick(e)}>홈</TabBtn>
+                    <TabBtn id="recommend" color={active2[0]} textDecoration={active2[1]} onClick={(e) => handleClick(e)}>추천</TabBtn>
                 </TabGroup>
             </Header>
             <Outlet />
@@ -70,7 +81,7 @@ const Header = styled.div`
 const SmallLogo = styled.div`
     width: 40px;
     height: 40px;
-    background-image: url(/mozip_logo_small.svg);
+    background-image: url(${process.env.PUBLIC_URL}/img/mozip_logo_small.svg);
 `
 
 const TabGroup = styled.div`
@@ -85,12 +96,8 @@ const TabBtn = styled.button`
     font-size: 18px;
     font-weight: bold;
     border: none;
-    color: ${color.gray500};
-
-    &:focus {
-        text-decoration: underline;
-        color: ${color.gray50};
-    }
+    text-decoration: ${props => props.textDecoration || "none"};
+    color: ${props => props.color || color.gray500};
 `
 
 export default Main

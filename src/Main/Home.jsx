@@ -7,31 +7,36 @@ const Home = () => {
         <Container>
             <HomeBanner />
             <StyledBtn>내 프로필 설정하기</StyledBtn>
-            <Container margin={"16px 0 0 0"}>
-                <h1>인기 프로젝트</h1>
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
+            <Container padding="0" margin={"40px 0 0 0"}>
+                <h1>인기 프로젝트🔥</h1>
+                <ProjectCard index={0}/>
+                <ProjectCard index={1}/>
+                <ProjectCard index={2}/>
                 {/* 데이터 바인딩으로 변환해줘야 함 */}
             </Container>
-            <Container margin={"16px 0 0 0"}>
-                <h1>새로운 프로젝트</h1>
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
+            <Container padding="0" margin={"40px 0 0 0"}>
+                <h1>새로운 프로젝트🆕</h1>
+                <ProjectCard index={3}/>
+                <ProjectCard index={4}/>
+                <ProjectCard index={5}/>
+                <ProjectCard index={6}/>
+                <ProjectCard index={7}/>
                 {/* 데이터 바인딩으로 변환해줘야 함 */}
             </Container>
-            <Container margin={"16px 0 0 0"}>
+            <Container padding="0" margin={"40px 0 0 0"}>
                 <h1>새로운 멤버</h1>
                 <div style={{overflowX: "scroll"}}>
                     <FlexBox>
-                        <MemberCard />
-                        <MemberCard />
-                        <MemberCard />
+                        <MemberCard index={0}/>
+                        <MemberCard index={1}/>
+                        <MemberCard index={2}/>
                         {/* 데이터 바인딩으로 변환해줘야 함 */}
                     </FlexBox>
                 </div>
             </Container>
+            <NewProjectFloatingBtn>
+                <div className="material-icons">add</div>
+            </NewProjectFloatingBtn> 
             {/* Bottom Navigation Bar 구현 필요 */}
         </Container>
     )
@@ -39,22 +44,26 @@ const Home = () => {
 
 const Container = styled.div`
     width: 100%;
-    padding: 16px;
+    padding: ${props => props.padding || "16px"};
     margin: ${props => props.margin || 0};
+
+    h1 {
+        margin-bottom: 12px;
+    }
 `
 
 const HomeBanner = styled.div`
     width: 360px;
     height: 180px;
     margin: auto;
-    background-image: url(/home_banner.svg);
+    background-image: url(${process.env.PUBLIC_URL}/img/home_banner.svg);
 `
 
 const StyledBtn = styled.button`
     width: 100%;
     height: 52px;
     border: none;
-    border-radius: 30px;
+    border-radius: 10px;
     background: ${color.mainColor};
     color: ${color.gray900};
     font-size: 18px;
@@ -66,6 +75,25 @@ const FlexBox = styled.div`
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+`
+
+const NewProjectFloatingBtn = styled.button`
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: ${color.mainColor};
+    position: fixed;
+    bottom: 92px;
+    right: 16px;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        color: ${color.gray900};
+        font-size: 40px;
+    }
 `
 
 export default Home

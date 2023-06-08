@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import _ from "lodash";
 import { useNavigate } from "react-router-dom";
+import { color } from "../style/colorVar";
 
 function LockForm() {
     let navigate = useNavigate();
@@ -31,7 +32,7 @@ function LockForm() {
         e.preventDefault();
         console.log(numbers);
         // 생년월일 서버 포스트 or 스토리지 저장 코드 입력
-        navigate('/favorites');
+        navigate('/job');
     };
 
     return (
@@ -73,12 +74,12 @@ const StyledInput = styled.input`
 const StyledBtn = styled.button`
     width: 90%;
     height: 52px;
-    background-color: #d4d4d4;
+    background-color: ${color.mainColor};
     border: none;
     border-radius: 10px;
     position: absolute;
     left:0;
-    bottom: 0;
+    bottom: 20px;
     margin: 16px;
     font-size: 16px;
     font-weight: bold;

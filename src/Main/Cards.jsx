@@ -1,56 +1,81 @@
 import styled from "styled-components";
 import { color } from "../style/colorVar";
+import { project_list } from "../constant/Projects";
+import { member_list } from "../constant/Members";
+import { useNavigate } from "react-router";
 
-export const ProjectCard = () => {
+export const ProjectCard = (props) => {
+    const navigate = useNavigate();
+    
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate(`/project/${props.index}`);
+    }
+
+    let project = project_list[props.index ? props.index : 0]
+
+    function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
+    }
+    
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    shuffle(numbers);
+      
     return (
-        <Container flexDirection={"row"} padding={"8px"} margin={"0 0 8px 0"}>
-            <CardImg />
+        <Container 
+            flexDirection={"row"} 
+            justifyContent={"space-around"}
+            padding={"8px"} 
+            margin={"0 0 8px 0"}
+            onClick={(e)=>{handleClick(e)}}
+        >
+            <CardImg idx={project.id}/>
             <ContentBox>
-                <BadgeGroup>
-                    <Badge>여행</Badge>
-                    <Badge>여행</Badge>
-                    <Badge>여행</Badge>
-                    <Badge>여행</Badge>
-                </BadgeGroup>
-                <Title>
-                    [프로젝트] 프로젝트 타이틀 설명
-                </Title>
+                <div>
+                    <BadgeGroup>
+                        {project.badge_list.map((item, index)=>{
+                            return <Badge key={index}>{item}</Badge>
+                        })}
+                    </BadgeGroup>
+                    <Title>
+                        {project.title}
+                    </Title>
+                </div>
                 <UserContainer>
                     <UserGroup>
-                        <User />
-                        <User />
-                        <User />
-                        <User />
+                        {Array.apply(null, {length: project.current_personnel}).map((item, index)=>{
+                            return <User key={index} idx={numbers[index]} />
+                        })}
                     </UserGroup>
-                    <UserContent>5/15 모집 완료</UserContent>
+                    <UserContent>
+                        <div className="material-symbols-outlined">diversity_3</div>
+                        {project.current_personnel}/{project.max_personnel} {project.current_personnel === project.max_personnel ? "모집 완료" : "모집중"}
+                    </UserContent>
                 </UserContainer>
             </ContentBox>
         </Container>
     )
 };
 
-export const MemberCard = () => {
+export const MemberCard = (props) => {
+    let member = member_list[props.index ? props.index : 0]
+
     return (
         <Container width={"300px"} padding={"16px 8px"} margin={"0 8px 0 0"}>
             <Header>
                 <Box>
-                    <MemberImg />
+                    <MemberImg profile_idx={member.profile_id}/>
                 </Box>
                 <MemberInfo>
-                    <h2>이름</h2>
-                    <p>UIUX 디자이너 신입</p>
+                    <h2>{member.name}</h2>
+                    <p>{member.role} {member.career}</p>
                 </MemberInfo>
-                <ChatBtn>채팅</ChatBtn>
+                <ChatBtn><span className="material-symbols-outlined">sms</span></ChatBtn>
             </Header>
             <BadgeGroup height={"auto"} fontSize={"14px"} padding={"16px 8px 0 8px"}>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
-                <Badge>여행</Badge>
+                {member.topic_list.map((item, index)=>{
+                    return <Badge>{item}</Badge>
+                })}
             </BadgeGroup>
         </Container>
     )
@@ -63,7 +88,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection || "column"};
     align-items: start;
-    justify-content: center;
+    justify-content: ${props => props.justifyContent || "center"};
     padding: ${props => props.padding || 0};
     margin: ${props => props.margin || 0};
 `
@@ -71,13 +96,18 @@ const Container = styled.div`
 const CardImg = styled.div`
     width: 90px;
     height: 90px;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/project/project${props => props.idx || 1}.png) no-repeat;
+    background-size: contain;
     border-radius: 10px;
 `
 
 const ContentBox = styled.div`
-    height: 100%;
+    height: 88px;
     padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    // align-items: stretch;
+    justify-content: space-between;
 
     h2 {
         margin: 4px 0;
@@ -85,7 +115,7 @@ const ContentBox = styled.div`
 `
 
 const BadgeGroup = styled.div`
-    height: ${props => props.height || "20%"};
+    height: ${props => props.height || "20px"};
     display: flex;
     flex-direction: row;
     font-size: ${props => props.fontSize || "10px"};
@@ -104,10 +134,14 @@ const Badge = styled.div`
 `
 
 const Title = styled.div`
+    width: 196px;
     height: 50%;
     font-size: 15px;
     font-weight: bold;
     padding: 4px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `
 
 const UserContainer = styled.div`
@@ -129,7 +163,8 @@ const User = styled.div`
     height: 25px;
     margin: -2px;
     border-radius: 50%;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/profile/profile${props => props.idx || 1}.png) no-repeat;
+    background-size: contain;
     border: 1px solid ${color.gray500};
 `
 
@@ -137,6 +172,14 @@ const UserContent = styled.div`
     width: 40%;
     text-align: right;
     margin: auto;
+    display:flex;
+    justify-content: center;
+
+    div {
+        margin-right: 4px;
+        font-size: 14px;
+        color: ${color.gray400}
+    }
 `
 
 const Header = styled.div`
@@ -153,7 +196,8 @@ const Box = styled.div`
 const MemberImg = styled.div`
     width: 60px;
     height: 60px;
-    background: ${color.gray700};
+    background: url(${process.env.PUBLIC_URL}/img/profile/profile${props => props.profile_idx || 1}.png) no-repeat;
+    background-size: contain;
     border-radius: 50%;
 `
 
@@ -172,11 +216,16 @@ const MemberInfo = styled.div`
 `
 
 const ChatBtn = styled.button`
+    width: 44px;
+    height: 44px;
     margin: auto;
-    padding: 4px 10px;
-    color: ${color.gray50};
+    padding: 10px;
     background: ${color.gray700};
-    border-radius: 17px;
+    border-radius: 22px;
     border: none;
 
+    span {
+        font-size: 24px;
+        color: ${color.gray50};
+    }
 `

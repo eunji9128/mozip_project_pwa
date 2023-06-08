@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import { color } from "../style/colorVar";
 
 const Landing = () => {
     const navigate = useNavigate();
@@ -25,21 +26,20 @@ const Contain = styled.div`
 `
 
 const LandingImg = styled.div`
-    width: 280px;
-    height: 588px;
-    background: url(/landing1.svg);
-    margin-top: 64px;
+    width: 360px;
+    height: 696px;
+    background: url(${process.env.PUBLIC_URL}/img/landing1.svg);
 `
 
 const StyledBtn = styled.button`
     width: 90%;
     height: 52px;
-    background-color: #d4d4d4;
+    background-color: ${color.mainColor};
     border: none;
     border-radius: 10px;
     position: absolute;
     left:0;
-    bottom: 0;
+    bottom: 20px;
     margin: 16px;
     font-size: 16px;
     font-weight: bold;
