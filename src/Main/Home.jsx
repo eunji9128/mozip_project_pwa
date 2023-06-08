@@ -34,6 +34,9 @@ const Home = () => {
                     </FlexBox>
                 </div>
             </Container>
+            <NewProjectFloatingBtn>
+                <div className="material-icons">add</div>
+            </NewProjectFloatingBtn> 
             {/* Bottom Navigation Bar 구현 필요 */}
         </Container>
     )
@@ -72,6 +75,25 @@ const FlexBox = styled.div`
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+`
+
+const NewProjectFloatingBtn = styled.button`
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: ${color.mainColor};
+    position: fixed;
+    bottom: 92px;
+    right: 16px;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        color: ${color.gray900};
+        font-size: 40px;
+    }
 `
 
 export default Home
