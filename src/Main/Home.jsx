@@ -8,14 +8,14 @@ const Home = () => {
             <HomeBanner />
             <StyledBtn>내 프로필 설정하기</StyledBtn>
             <Container padding="0" margin={"40px 0 0 0"}>
-                <h1>인기 프로젝트</h1>
+                <h1>인기 프로젝트🔥</h1>
                 <ProjectCard index={0}/>
                 <ProjectCard index={1}/>
                 <ProjectCard index={2}/>
                 {/* 데이터 바인딩으로 변환해줘야 함 */}
             </Container>
             <Container padding="0" margin={"40px 0 0 0"}>
-                <h1>새로운 프로젝트</h1>
+                <h1>새로운 프로젝트🆕</h1>
                 <ProjectCard index={3}/>
                 <ProjectCard index={4}/>
                 <ProjectCard index={5}/>
@@ -34,6 +34,9 @@ const Home = () => {
                     </FlexBox>
                 </div>
             </Container>
+            <NewProjectFloatingBtn>
+                <div className="material-icons">add</div>
+            </NewProjectFloatingBtn> 
             {/* Bottom Navigation Bar 구현 필요 */}
         </Container>
     )
@@ -72,6 +75,25 @@ const FlexBox = styled.div`
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+`
+
+const NewProjectFloatingBtn = styled.button`
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: ${color.mainColor};
+    position: fixed;
+    bottom: 92px;
+    right: 16px;
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        color: ${color.gray900};
+        font-size: 40px;
+    }
 `
 
 export default Home

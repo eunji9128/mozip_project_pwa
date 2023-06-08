@@ -3,7 +3,7 @@ import { color } from "../style/colorVar";
 import "./mypage_style.css";
 import { useState } from "react";
 import { ProjectCard } from "../Main/Cards";
-import portfolio from './portfolio.svg';
+import portfolio from './portfolio.png';
 
 const MyPage = () => {
     const username = sessionStorage.getItem('username');
@@ -160,7 +160,8 @@ const MyBadges = styled.div`
     width: 360px;
     height: 360px;
     margin: auto;
-    background: url(${process.env.PUBLIC_URL}/img/my_badges.svg);
+    background: url(${process.env.PUBLIC_URL}/img/my_badges.png);
+    background-size: cover;
 `
 
 const Portfolio = styled.img`

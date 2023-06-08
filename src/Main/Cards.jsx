@@ -70,7 +70,7 @@ export const MemberCard = (props) => {
                     <h2>{member.name}</h2>
                     <p>{member.role} {member.career}</p>
                 </MemberInfo>
-                <ChatBtn>채팅</ChatBtn>
+                <ChatBtn><span className="material-symbols-outlined">sms</span></ChatBtn>
             </Header>
             <BadgeGroup height={"auto"} fontSize={"14px"} padding={"16px 8px 0 8px"}>
                 {member.topic_list.map((item, index)=>{
@@ -216,11 +216,16 @@ const MemberInfo = styled.div`
 `
 
 const ChatBtn = styled.button`
+    width: 44px;
+    height: 44px;
     margin: auto;
-    padding: 4px 10px;
-    color: ${color.gray50};
+    padding: 10px;
     background: ${color.gray700};
-    border-radius: 17px;
+    border-radius: 22px;
     border: none;
 
+    span {
+        font-size: 24px;
+        color: ${color.gray50};
+    }
 `

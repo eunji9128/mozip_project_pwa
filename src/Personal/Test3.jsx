@@ -220,7 +220,8 @@ const HeaderContent = styled.div`
 const TestLanding = styled.div`
     width: 100%;
     height: 100vh;
-    background-image: url(${process.env.PUBLIC_URL}/img/leader_test_landing.svg);
+    background: url(${process.env.PUBLIC_URL}/img/leader_test_landing.png) no-repeat;
+    background-size: contain;
 `
 
 const TitleBox = styled.div`
@@ -250,7 +251,8 @@ const Content = styled.div`
 const Exam = styled.div`
     width: 360px;
     height: 230px;
-    background: url(${process.env.PUBLIC_URL}/img/leader_test${props => props.id || "1"}.svg);
+    background: url(${process.env.PUBLIC_URL}/img/leader_test${props => props.id || "1"}.png) no-repeat center center;
+    background-size: contain;
 `
 
 const Btn5Group = styled.div`
