@@ -32,7 +32,7 @@ function LockForm() {
         e.preventDefault();
         console.log(numbers);
         // 생년월일 서버 포스트 or 스토리지 저장 코드 입력
-        navigate('/favorites');
+        navigate('/job');
     };
 
     return (
