@@ -162,7 +162,8 @@ const MyBadges = styled.div`
     width: 360px;
     height: 360px;
     margin: auto;
-    background: url(${process.env.PUBLIC_URL}/img/my_badges.svg);
+    background: url(${process.env.PUBLIC_URL}/img/my_badges.png);
+    background-size: cover;
 `
 
 const Portfolio = styled.img`
