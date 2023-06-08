@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/mozip_project_pwa/static/css/main.b5f60b1e.css",
-    "main.js": "/mozip_project_pwa/static/js/main.4b081f0f.js",
+    "main.js": "/mozip_project_pwa/static/js/main.137bd094.js",
     "static/js/787.41bd328f.chunk.js": "/mozip_project_pwa/static/js/787.41bd328f.chunk.js",
-    "static/media/portfolio.svg": "/mozip_project_pwa/static/media/portfolio.1454230108cf176ed64d8407ea067d57.svg",
+    "static/media/portfolio.png": "/mozip_project_pwa/static/media/portfolio.c11e5f33fdeb0548f5a2.png",
     "static/media/SBaggro_L.ttf": "/mozip_project_pwa/static/media/SBaggro_L.d52f7dfb589c2ed5daab.ttf",
     "static/media/SBaggro_B.ttf": "/mozip_project_pwa/static/media/SBaggro_B.2bd2f65ded5ef6e562d3.ttf",
     "static/media/SBaggro_M.ttf": "/mozip_project_pwa/static/media/SBaggro_M.ba7f85d311382e806808.ttf",
@@ -11,11 +11,11 @@
     "static/media/yapari.ttf": "/mozip_project_pwa/static/media/yapari.944cd3330ee0a2579bb2.ttf",
     "index.html": "/mozip_project_pwa/index.html",
     "main.b5f60b1e.css.map": "/mozip_project_pwa/static/css/main.b5f60b1e.css.map",
-    "main.4b081f0f.js.map": "/mozip_project_pwa/static/js/main.4b081f0f.js.map",
+    "main.137bd094.js.map": "/mozip_project_pwa/static/js/main.137bd094.js.map",
     "787.41bd328f.chunk.js.map": "/mozip_project_pwa/static/js/787.41bd328f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b5f60b1e.css",
-    "static/js/main.4b081f0f.js"
+    "static/js/main.137bd094.js"
   ]
 }
