@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { color } from "../style/colorVar";
 
 const FavBlocks = () => {
     let navigate = useNavigate();
-    let [selected, setSelected] = useState([]);
+    // let [selected, setSelected] = useState([]);
     const petURL = `url(${process.env.PUBLIC_URL}/img/favSpBlock.svg)`;
     const petActiveURL = `url(${process.env.PUBLIC_URL}/img/favSpBlockActive.svg)`;
     
@@ -16,28 +16,28 @@ const FavBlocks = () => {
         navigate('/profile-set');
     };
 
-    const handleSelect = (e) => {
-        e.preventDefault();
-        const targetId = e.target.closest("[id]").id;
-        let copy = [...selected];
-        const isExist = copy.find((elem)=>{ if (elem == targetId) return true; });
+    // const handleSelect = (e) => {
+    //     e.preventDefault();
+    //     const targetId = e.target.closest("[id]").id;
+    //     let copy = [...selected];
+    //     const isExist = copy.find((elem)=>{ if (elem == targetId) return true; });
 
-        if (isExist) {
-            copy = copy.filter((elem) => { if (elem !== targetId) return true; })
-            if (targetId === "pet") {
-                document.getElementById(targetId).style.background = petURL;
-            }
-            else {document.getElementById(targetId).style.background = "#737373"}
-        } else {
-            copy.push(targetId);
-            if (targetId === "pet") {
-                document.getElementById(targetId).style.background = petActiveURL;
-            }
-            else {document.getElementById(targetId).style.background = "#d4d4d4"}
-        }
-        setSelected(copy);
-        console.log(selected, targetId);
-    }
+    //     if (isExist) {
+    //         copy = copy.filter((elem) => { if (elem !== targetId) return true; })
+    //         if (targetId === "pet") {
+    //             document.getElementById(targetId).style.background = petURL;
+    //         }
+    //         else {document.getElementById(targetId).style.background = "#737373"}
+    //     } else {
+    //         copy.push(targetId);
+    //         if (targetId === "pet") {
+    //             document.getElementById(targetId).style.background = petActiveURL;
+    //         }
+    //         else {document.getElementById(targetId).style.background = "#d4d4d4"}
+    //     }
+    //     setSelected(copy);
+    //     console.log(selected, targetId);
+    // }
 
     const handleDrag = (e) => {
         e.preventDefault();
@@ -45,6 +45,7 @@ const FavBlocks = () => {
     }
 
     let [favId, setFavId] = useState(['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']);
+    let [selected, setSelected] = useState(false);
 
     const handleClick = (e) => {
         // e.preventDefault();
@@ -54,10 +55,19 @@ const FavBlocks = () => {
         id = parseInt(id);
 
         let copy = [...favId];
-        copy[id] = `${id}active`;
+        copy[id] = (copy[id].includes('active') ? '' : `${id}active`);
         setFavId(copy);
         console.log(favId);
     }
+
+    useEffect(() => {
+        favId.map((elem, idx) => {
+            if (elem.includes('active')) {
+                setSelected(true);
+                console.log('selected', selected);
+            }
+        })
+    }, [favId]);
 
     return (
         <>
@@ -84,7 +94,7 @@ const FavBlocks = () => {
             </Container>
             <StyledBtn 
                 onClick={(e) => handleSubmit(e)}
-                disabled={selected.length > 0 ? false : true}    
+                disabled={selected ? false : true}    
             >선택완료</StyledBtn>
         </>
     )
@@ -133,7 +143,7 @@ const Fav2 = styled.div`
     width: 180px;
     height: 94px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav2.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "2"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -144,7 +154,7 @@ const Fav3 = styled.div`
     width: 180px;
     height: 180px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav3.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "3"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -166,7 +176,7 @@ const Fav5 = styled.div`
     width: 164px;
     height: 65px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav5.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "5"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -177,7 +187,7 @@ const Fav6 = styled.div`
     width: 83px;
     height: 100px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav6.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "6"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -188,7 +198,7 @@ const Fav7 = styled.div`
     width: 206px;
     height: 182px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav7.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "7"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -199,7 +209,7 @@ const Fav8 = styled.div`
     width: 180px;
     height: 180px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav8.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "8"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -221,7 +231,7 @@ const Fav10 = styled.div`
     width: 280px;
     height: 94px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav10.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "10"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -232,18 +242,18 @@ const Fav11 = styled.div`
     width: 180px;
     height: 180px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav11.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "11"}.png) no-repeat center center;
     background-size: contain;
 `
 
 const Fav12 = styled.div`
     position: relative;
-    top: -1726px;
+    top: -1724px;
     left: 824px;
     width: 164px;
     height: 64px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav12.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "12"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -254,7 +264,7 @@ const Fav13 = styled.div`
     width: 82px;
     height: 100px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav13.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "13"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -265,7 +275,7 @@ const Fav14 = styled.div`
     width: 108px;
     height: 180px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav14.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "14"}.png) no-repeat center center;
     background-size: contain;
 `
 
@@ -276,7 +286,7 @@ const Fav15 = styled.div`
     width: 304px;
     height: 290px;
     object-fit: contain;
-    background: url(${process.env.PUBLIC_URL}/img/fav15.png) no-repeat center center;
+    background: url(${process.env.PUBLIC_URL}/img/fav${props => props.favId || "15"}.png) no-repeat center center;
     background-size: contain;
 `
 
