@@ -106,7 +106,7 @@ export const Job = () => {
 
 export const Seniority = () => {
     const navigate = useNavigate();
-    const career = [" 신입", " 주니어", " 시니어", "이상 시니어"];
+    const career = ["이상 시니어", " 시니어", " 주니어", " 신입"];
     let [step, setStep] = useState(0);
 
     useEffect(() => {
@@ -116,10 +116,10 @@ export const Seniority = () => {
         input.addEventListener("input", (event) => {
         value.textContent = event.target.value
         let inputVal = parseInt(value.textContent);
-        if (inputVal === 0) {setStep(0)}
-        else if (inputVal < 4) {setStep(1)}
-        else if (inputVal < 15) {setStep(2)}
-        else {setStep(3)}
+        if (inputVal === 0) {setStep(3)}
+        else if (inputVal < 4) {setStep(2)}
+        else if (inputVal < 15) {setStep(1)}
+        else {setStep(0)}
         })
 
     })

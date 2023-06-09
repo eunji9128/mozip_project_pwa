@@ -11,39 +11,70 @@ const Navbar = () => {
     
     const navigate = useNavigate();
 
-    const location = window.location.pathname;
+    let location = window.location.pathname;
+    location = location.split('/');
     console.log(location);
 
     useEffect(() => {
-        if (location.includes('home')) {
-            setActive1(color.gray50);
-            setActive2('');
-            setActive3('');
-            setActive4('');
+        switch (location[2]) {
+            case "home":
+                setActive1(color.gray50);
+                setActive2('');
+                setActive3('');
+                setActive4('');
+                break;
+            case "chat":
+                setActive1('');
+                setActive2(color.gray50);
+                setActive3('');
+                setActive4('');
+                break;
+            case "personal":
+                setActive1('');
+                setActive2('');
+                setActive3(color.gray50);
+                setActive4('');
+                break;
+            case "mypage":
+                setActive1('');
+                setActive2('');
+                setActive3('');
+                setActive4(color.gray50);
+                break;
         }
-        else if (location.includes('chat')) {
-            setActive1('');
-            setActive2(color.gray50);
-            setActive3('');
-            setActive4('');
-        }
-        else if (location.includes('personal')) {
-            setActive1('');
-            setActive2('');
-            setActive3(color.gray50);
-            setActive4('');
-        } else {
-            setActive1('');
-            setActive2('');
-            setActive3('');
-            setActive4(color.gray50);
-        }
+
+        // if (location[2] === 'home') {
+        //     setActive1(color.gray50);
+        //     setActive2('');
+        //     setActive3('');
+        //     setActive4('');
+        // }
+        // else if (location.includes('chat')) {
+        //     setActive1('');
+        //     setActive2(color.gray50);
+        //     setActive3('');
+        //     setActive4('');
+        // }
+        // else if (location.includes('personal')) {
+        //     setActive1('');
+        //     setActive2('');
+        //     setActive3(color.gray50);
+        //     setActive4('');
+        // } else if (location.includes('mypage')) {
+        //     setActive1('');
+        //     setActive2('');
+        //     setActive3('');
+        //     setActive4(color.gray50);
+        // } else {
+        //     return;
+        // }
     },[])
 
     const handleClick = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        navigate(`/${e.target.parentNode.id}`);
+        console.log(e.currentTarget.id);
+        navigate(`/${e.currentTarget.id}`);
     }
 
     return (
